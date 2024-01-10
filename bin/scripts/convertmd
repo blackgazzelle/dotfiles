@@ -1,0 +1,12 @@
+################################################################################
+# Author : Christian Rose
+# Created : 1 Jan 2021
+# Description : Converts github flavored markdown into a pdf document
+################################################################################
+#!/usr/bin/env bash
+
+if [ "$#" -eq 2 ]; then
+  pandoc $1 -o $2 '-fmarkdown-implicit_figures -o' --from=markdown -V geometry:margin=.4in --toc --highlight-style=espresso --variable urlcolor=cyan --pdf-engine=xelatex
+else
+  echo "USAGE: convertmd 'markdown file' 'name of new pdf'"
+fi

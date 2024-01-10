@@ -1,0 +1,158 @@
+#!/usr/bin/env bash
+# Colors
+Red='\033[0;31m'
+Cyan='\033[0;36m'
+Clear='\033[0m' # No Color
+
+# Setup common directors
+function setup_directories {
+    mkdir -p $HOME/bin/
+    mkdir -p $HOME/.local/bin
+    mkdir -p $HOME/.duplicity/
+    mkdir -p $HOME/Desktop/
+    mkdir -p $HOME/Pictures/backgrounds/
+    mkdir -p $HOME/Downloads/
+}
+
+# Install polychromatic
+function install_openrazer {
+    echo "deb [signed-by=/usr/share/keyrings/polychromatic.gpg] http://ppa.launchpad.net/polychromatic/stable/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/polychromatic.list
+    curl -fsSL 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xc0d54c34d00160459588000e96b9cd7c22e2c8c5' | sudo gpg --dearmour -o /usr/share/keyrings/polychromatic.gpg
+    sudo apt-get update
+
+    # Full installation
+    sudo apt install polychromatic
+    echo 'deb http://download.opensuse.org/repositories/hardware:/razer/Debian_Unstable/ /' | sudo tee /etc/apt/sources.list.d/hardware:razer.list
+    curl -fsSL https://download.opensuse.org/repositories/hardware:razer/Debian_Unstable/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/hardware_razer.gpg > /dev/null
+    sudo apt update
+    sudo apt install openrazer-meta
+
+}
+
+function install_i3_packages {
+    sudo apt install i3 rofi polybar playerctl compton feh aptitude arandr lxappearance \
+        pasystray redshift-gtk xss-lock autorandr mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev pipewire \
+        python3-dbus network-manager-gnome xbacklight neofetch xfce4-clipman xorg dbus-x11 light \
+        p7zip-full xinit ukui-polkit polkitd pinentry-gnome3 gnome-keyring policykit-1-gnome blueman thefuck -y
+    # SDDM
+    sudo apt install --no-install-recommends sddm qml-module-qtquick-layouts qml-module-qtgraphicaleffects qml-module-qtquick-controls \
+        qml-module-qtquick-controls2 libqt5svg5 -y
+
+    #i3lock-color
+    sudo apt install autoconf gcc make pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev \
+        libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev \
+        libxcb-image0-dev libxcb-util0-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
+}
+
+
+function install_common {
+    # common
+    sudo apt install tmux flatpak curl build-essential make clang clangd cmake fonts-font-awesome gcc \
+        openjdk-17-jre openjdk-17-jdk default-jre default-jdk git golang gpg grub-customizer 7zip \
+        htop python3 python-is-python3 ipython3 libreoffice nextcloud-desktop nmap npm lldb \
+        openssh-client openssh-server openvpn okular pavucontrol pulseaudio virt-manager sddm xxd \
+        xcwd network-manager pandoc btop duplicity 7zip gpg ripgrep python3-venv eog thunar dfc xclip \
+        command-not-found gnome-screenshot urlview psmisc dracut plymouth yubikey-manager fido2-tools \
+        anacron pipx apt-listbugs apt-listchanges timeshift desktop-base -y
+
+    # Terminal
+    sudo apt install kitty zsh fzf -y
+    chsh -s $(which zsh)
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    git clone https://github.com/nordtheme/dircolors.git $HOME/bin/nord-dircolors
+
+    # TPM
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm/
+
+    # Rust
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+    # Nvim
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+    chmod u+x nvim.appimage
+    sudo mv nvim.appimage /usr/bin/nvim
+    git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+    ln -sf $HOME/.config/nvim-custom $HOME/.config/nvim/lua/custom
+
+
+
+
+    # Add flatpak
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+    # Brave
+    sudo apt install curl
+    sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+    sudo apt update
+    sudo apt brave-browser -y
+}
+
+function install_ctf_tools {
+    sudo apt install nmap -y
+
+}
+
+function post_reboot_install {
+    # CAC
+    printf "${Cyan}FOR CAC FOLLOW THIS GUIDE:${Clear} https://militarycac.com/linux.htm\n"
+    printf "${Cyan}FOR FLATPAK RESTART AND RUN:${Clear}\n"
+
+    # Jetbrains Nerd fonts
+    printf "${Cyan}Jetbrains Nerdfont:${Clear}https://www.nerdfonts.com/font-downloads\n"
+
+    # Flatpak packages
+    printf "${Cyan}Flatpak:\n${Clear}"
+    echo "flatpak install flathub com.spotify.Client"
+    echo "flatpak install flathub com.discordapp.Discord"
+    echo "flatpak install flathub com.slack.Slack"
+    echo "flatpak install flathub me.hyliu.fluentreader"
+
+    # Spicetify
+    printf "${Cyan}Spicetify:${Clear}https://spicetify.app/docs/getting-started\n"
+
+    # NordVPN
+    printf "${Cyan}For NordVPN follow install guide:${Clear} https://nordvpn.com/download/linux/\n"
+
+    # Obsidian
+    printf "${Cyan}Install Obsidian:${Clear} https://obsidian.md/download\n"
+
+    # Ghidra
+    printf "${Cyan}INSTALL GHIDRA${Clear}: https://github.com/NationalSecurityAgency/ghidra/releases\n"
+
+    # GDB shenanigans
+    printf "${Cyan}GDB scripts:${Clear}: https://github.com/apogiatzis/gdb-peda-pwndbg-gef\n"
+
+    # i3lock-color
+    printf "${Cyan}i3lock-color:${Clear}: https://github.com/Raymo111/i3lock-color\n"
+
+    # Grub2-themes
+    printf "${Cyan}grub2-themes:${Clear}: https://github.com/vinceliuice/grub2-themes/releases\n"
+}
+
+
+set -- $(locale LC_MESSAGES)
+yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
+## declare an array variable
+declare -a arr=("Setup Directories" "Install Openrazer" "Install i3 Packages" "Install Common Packages" "Install CTF Tools" "Post Install Print")
+for command in "${arr[@]}";
+do
+    read -p "$command (${yesword} / ${noword})? " yn
+    if [[ "$yn" =~ $yesexpr ]]; then
+        if [[ $comamnd =~ "Setup" ]]; then
+            setup_directories
+        elif [[ $command =~ "Openrazer" ]]; then
+            install_openrazer
+        elif [[ $command =~ "i3" ]]; then
+            install_i3_packages
+        elif [[ $command =~ "Common" ]]; then
+            install_common
+        elif [[ $command =~ "CTF" ]]; then
+            install_ctf_tools
+        elif [[ $command =~ "Post" ]]; then
+            post_reboot_install
+        fi
+    fi
+done
