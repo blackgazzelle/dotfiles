@@ -1,4 +1,4 @@
-local overrides = require "custom.configs.overrides"
+local overrides = require("custom.configs.overrides")
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -7,15 +7,15 @@ local plugins = {
   {
     "nvim-telescope/telescope.nvim",
     opts = function()
-      require("telescope").setup {
+      require("telescope").setup({
         extensions = {
           ["ui-select"] = {
-            require("telescope.themes").get_dropdown {},
+            require("telescope.themes").get_dropdown({}),
           },
         },
-      }
-      require("telescope").load_extension "ui-select"
-      require("telescope").load_extension "session-lens"
+      })
+      require("telescope").load_extension("ui-select")
+      require("telescope").load_extension("session-lens")
     end,
     dependencies = {
       "nvim-telescope/telescope-ui-select.nvim",
@@ -30,13 +30,13 @@ local plugins = {
       {
         "jose-elias-alvarez/null-ls.nvim",
         config = function()
-          require "custom.configs.null-ls"
+          require("custom.configs.null-ls")
         end,
       },
     },
     config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
+      require("plugins.configs.lspconfig")
+      require("custom.configs.lspconfig")
     end, -- Override to setup mason-lspconfig
   },
 
@@ -119,10 +119,10 @@ local plugins = {
     "rmagatti/auto-session",
     lazy = false,
     config = function()
-      require("auto-session").setup {
+      require("auto-session").setup({
         auto_session_use_git_branch = true,
         auto_save_enabled = true,
-      }
+      })
     end,
     session_lens = {},
   },
@@ -139,7 +139,7 @@ local plugins = {
     ft = "rust",
     dependencies = "neovim/nvim-lspconfig",
     opts = function()
-      return require "custom.configs.rust-tools"
+      return require("custom.configs.rust-tools")
     end,
     config = function(_, opts)
       require("rust-tools").setup(opts)
@@ -152,7 +152,7 @@ local plugins = {
     "saecki/crates.nvim",
     ft = { "rust", "toml" },
     config = function(_, opts)
-      local crates = require "crates"
+      local crates = require("crates")
       crates.setup(opts)
       crates.show()
     end,
@@ -160,10 +160,47 @@ local plugins = {
   {
     "hrsh7th/nvim-cmp",
     opts = function()
-      local M = require "plugins.configs.cmp"
+      local M = require("plugins.configs.cmp")
       table.insert(M.sources, { name = "crates" })
       return M
     end,
+  },
+
+  {
+    "HakonHarnes/img-clip.nvim",
+    lazy = false,
+    event = "BufEnter",
+  },
+
+  {
+    "folke/twilight.nvim",
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
+
+  {
+    "folke/zen-mode.nvim",
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
+  {
+    "jbyuki/venn.nvim",
+    lazy = false,
   },
 
   -- To make a plugin not be loaded
