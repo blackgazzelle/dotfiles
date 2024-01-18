@@ -82,7 +82,10 @@ setopt HIST_EXPIRE_DUPS_FIRST
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting poetry z bgnotify web-search debian tmux command-not-found compleat docker docker-compose colored-man-pages common-aliases catimg thefuck)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting poetry z bgnotify web-search debian tmux command-not-found compleat docker docker-compose colored-man-pages common-aliases catimg thefuck ssh-agent)
+
+zstyle :omz:plugins:ssh-agent lazy yes
+zstyle :omz:plugins:ssh-agent agent-forwarding yes
 
 source $ZSH/oh-my-zsh.sh
 
