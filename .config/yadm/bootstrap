@@ -56,7 +56,7 @@ function install_common {
         anacron pipx apt-listbugs apt-listchanges timeshift desktop-base -y
 
     # Terminal
-    sudo apt install kitty zsh fzf -y
+    sudo apt install alacritty zsh fzf -y
     chsh -s $(which zsh)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
