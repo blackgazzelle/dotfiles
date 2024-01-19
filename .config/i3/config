@@ -27,7 +27,7 @@ font pango:JetbrainsMono Nerd Font, Font Awesome 10
 set $ws1 "1: Terminal "
 set $ws2 "2: Brave 󰖟"
 set $ws3 "3: Spotify "
-set $ws4 "4: Discord 󰙯"
+set $ws4 "4: Discord 󰙯/"
 set $ws5 "5: Email "
 set $ws6 "6"
 set $ws7 "7"
@@ -52,6 +52,7 @@ workspace $ws3 output HDMI-A-1
 assign [class="Brave-browser"] $ws2
 for_window [class="Spotify"] move to workspace $ws3
 assign [class="discord"] $ws4
+assign [class="Slack"] $ws4
 assign [class="thunderbird-default"] $ws5
 for_window [window_role="pop-up"]                       floating enable
 for_window [window_role="bubble"]                       floating enable 
