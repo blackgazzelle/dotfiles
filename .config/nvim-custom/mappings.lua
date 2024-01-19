@@ -36,7 +36,11 @@ M.general = {
       },
   v = {
     [">"] = { ">gv", "indent"},
+    ["jk"] = { "<esc>"},
   },
+  i = {
+    ["jk"] = { "<esc>"},
+  }
 }
 
 M.venn = {
