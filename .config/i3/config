@@ -97,7 +97,7 @@ bindsym $mod+Control+Down exec --no-startup-id "ddcutil setvcp 10 - 5 --display 
 bindsym $mod+Shift+space exec $HOME/.config/scripts/autorandr
 
 # start a terminal
-bindsym $mod+Return exec cd $(xcwd) && alacritty
+bindsym $mod+Return exec cd $(xcwd) && alacritty -e tmux
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -265,7 +265,7 @@ exec --no-startup-id nm-applet
 # Autoload
 
 exec brave-browser-stable
-exec --no-startup-id i3-msg $ws1; exec alacritty
+exec --no-startup-id i3-msg $ws1; exec alacritty -e tmux
 
 exec -no-startup-id autorandr -c && feh --bg-scale --no-fehbg $HOME/Pictures/backgrounds/bebop.jpg
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
