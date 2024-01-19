@@ -19,6 +19,8 @@ font:
       style: "Italic"
   size: 10
 
+env:
+  TERM: "xterm-256color"
 
 # Copyright (c) 2016-present Sven Greb <development@svengreb.de>
 # This source code is licensed under the MIT license found in the license file.
@@ -71,3 +73,4 @@ colors:
     magenta: "#8c738c"
     cyan: "#6d96a5"
     white: "#aeb3bb"
+  draw_bold_text_with_bright_colors: true
