@@ -116,21 +116,27 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 #
+# Check if Ranger is running the shell
+if [ -n "$RANGER_LEVEL" ]; then export PS1="[ranger]$PS1"; fi
+
+# export ENV variables
 export SCRIPTS="~/bin/scripts"
 export PATH="$HOME/.local/bin:$PATH"
 export VISUAL='/usr/bin/nvim'
 export EDITOR='/usr/bin/nvim'
 export PAGER='/usr/bin/less'
 export BROWSER='/usr/bin/brave-browser-stable'
+export PATH=$PATH:/home/gazzelle/.spicetify
+export GPG_TTY=$(tty)
+. "$HOME/.cargo/env"
+
+# Nord dircolors
 test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
-
-export PATH=$PATH:/home/gazzelle/.spicetify
-. "$HOME/.cargo/env"
-export GPG_TTY=$(tty)
+# ssh-agent and gpg agent
 gpg-connect-agent updatestartuptty /bye >/dev/null
 SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"

@@ -27,7 +27,7 @@ font pango:JetbrainsMono Nerd Font, Font Awesome 10
 set $ws1 "1: Terminal "
 set $ws2 "2: Brave 󰖟"
 set $ws3 "3: Spotify "
-set $ws4 "4: Discord 󰙯/"
+set $ws4 "4: Messaging 󰙯/"
 set $ws5 "5: Email "
 set $ws6 "6"
 set $ws7 "7"

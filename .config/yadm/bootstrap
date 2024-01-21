@@ -53,7 +53,7 @@ function install_common {
         openssh-client openssh-server openvpn okular pavucontrol pulseaudio virt-manager sddm xxd \
         xcwd network-manager pandoc btop duplicity 7zip gpg ripgrep python3-venv eog thunar dfc xclip \
         command-not-found gnome-screenshot urlview psmisc dracut plymouth yubikey-manager fido2-tools \
-        anacron pipx apt-listbugs apt-listchanges timeshift desktop-base -y
+        anacron pipx apt-listbugs apt-listchanges timeshift desktop-base ranger -y
 
     # Terminal
     sudo apt install alacritty zsh fzf -y
