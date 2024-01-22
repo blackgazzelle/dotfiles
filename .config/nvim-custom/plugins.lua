@@ -147,6 +147,11 @@ local plugins = {
   },
   {
     "mfussenegger/nvim-dap",
+    ft = { "python", "c", "c++", "rust" },
+    dependencies = {"rcarriga/nvim-dap-ui", "mfussenegger/nvim-dap-python"},
+    config = function()
+      require("custom.configs.dap")
+    end,
   },
   {
     "saecki/crates.nvim",
@@ -231,7 +236,7 @@ local plugins = {
     init = function()
       -- Set configuration options here
       vim.g["conjure#debug"] = true
-      vim.g['conjure#extract#tree_sitter#enabled'] = true
+      vim.g["conjure#extract#tree_sitter#enabled"] = true
     end,
   },
   -- To make a plugin not be loaded
