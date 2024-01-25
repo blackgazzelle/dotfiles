@@ -261,7 +261,7 @@ exec_always --no-startup-id xss-lock --transfer-sleep-lock -- $HOME/.config/scri
 exec --no-startup-id nm-applet
 
 # Background temp
-#exec --no-startup-id redshift-gtk
+# exec --no-startup-id redshift-gtk
 
 # Autoload
 
