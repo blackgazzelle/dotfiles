@@ -62,6 +62,9 @@ M.venn = {
     ["<leader>drL"] = { "<C-v>l:VBox<CR>", "K Right Arrow", opts = { noremap = true } },
     ["<leader>drH"] = { "<C-v>h:VBox<CR>", "K Left Arrow", opts = { noremap = true } },
   },
+  v = {
+    ["<leader>drf"] = { ":VBox<CR>", "Surround Visual Selection in a box", opt = { noremap = true } },
+  },
 }
 
 M.dap = {

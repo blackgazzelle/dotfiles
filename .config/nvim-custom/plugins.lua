@@ -63,9 +63,10 @@ local plugins = {
         "beautysh",
         "cpplint",
         "pyright",
-        "cspell",
         "autopep8",
         "bash-language-server",
+        "marksman",
+        "markdownlint"
       },
     },
   },
@@ -124,7 +125,6 @@ local plugins = {
         auto_save_enabled = true,
       })
     end,
-    session_lens = {},
   },
 
   {
@@ -239,6 +239,9 @@ local plugins = {
       vim.g["conjure#extract#tree_sitter#enabled"] = true
     end,
   },
+  {
+    "davidmh/cspell.nvim",
+  }
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

@@ -1,13 +1,17 @@
-local null_ls = require "null-ls"
+local null_ls = require("null-ls")
+local cspell = require("cspell")
 
 local formatting = null_ls.builtins.formatting
 local lint = null_ls.builtins.diagnostics
-local actions = null_ls.builtins.code_actions
+
 local sources = {
 
   -- webdev stuff
-  formatting.deno_fmt, -- chose deno for ts/js files cuz its very fast!
-  formatting.prettier.with { filetypes = { "html", "markdown", "css" } }, -- so prettier works only on these filetypes
+  formatting.deno_fmt,                                                    -- chose deno for ts/js files cuz its very fast!
+  formatting.prettier.with({ filetypes = { "html", "markdown", "css" } }), -- so prettier works only on these filetypes
+
+  -- markdown
+  lint.markdownlint,
 
   -- Lua
   formatting.stylua,
@@ -26,12 +30,12 @@ local sources = {
   -- bash
   formatting.beautysh,
 
-  -- spellcheck
-  lint.cspell,
-  actions.cspell,
+  -- spell check
+  cspell.code_actions,
+  cspell.diagnostics,
 }
 
-null_ls.setup {
+null_ls.setup({
   debug = true,
   sources = sources,
-}
+})
