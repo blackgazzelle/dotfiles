@@ -6,7 +6,8 @@
 #!/usr/bin/env bash
 
 if [ "$#" -eq 2 ]; then
-  pandoc $1 -o $2 '-fmarkdown-implicit_figures -o' --from=markdown -V geometry:margin=.4in --toc --highlight-style=espresso --variable urlcolor=cyan --pdf-engine=xelatex
+  pandoc $1 -o $2 '-fmarkdown-implicit_figures -o' --from=markdown -V geometry:margin=.4in --highlight-style=tango  -V colorlinks=true -V linkcolor=blue -V urlcolor=red -V toccolor=gray -V papersize:a4 --pdf-engine=wkhtmltopdf
+
 else
   echo "USAGE: convertmd 'markdown file' 'name of new pdf'"
 fi

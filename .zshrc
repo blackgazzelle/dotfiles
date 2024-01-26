@@ -122,7 +122,6 @@ if [ -n "$RANGER_LEVEL" ]; then export PS1="[ranger]$PS1"; fi
 # export ENV variables
 export SCRIPTS="~/bin/scripts"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:$SCRIPTS"
 export VISUAL='/usr/bin/nvim'
 export EDITOR='/usr/bin/nvim'
 export PAGER='/usr/bin/less'
