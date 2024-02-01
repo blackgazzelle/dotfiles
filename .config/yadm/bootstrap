@@ -33,7 +33,7 @@ function install_i3_packages {
     sudo apt install i3 rofi polybar playerctl compton feh aptitude arandr lxappearance \
         pasystray redshift-gtk xss-lock autorandr mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev pipewire \
         python3-dbus network-manager-gnome xbacklight neofetch xfce4-clipman xorg dbus-x11 light \
-        p7zip-full xinit ukui-polkit polkitd pinentry-gnome3 gnome-keyring policykit-1-gnome blueman thefuck ddcutil ddcui -y
+        p7zip-full xinit ukui-polkit polkitd pinentry-gnome3 gnome-keyring policykit-1-gnome blueman thefuck ddcutil ddcui unclutter -y
     # SDDM
     sudo apt install --no-install-recommends sddm qml-module-qtquick-layouts qml-module-qtgraphicaleffects qml-module-qtquick-controls \
         qml-module-qtquick-controls2 libqt5svg5 -y
