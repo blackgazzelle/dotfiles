@@ -98,7 +98,7 @@ bindsym $mod+Control+Down exec --no-startup-id "ddcutil setvcp 10 - 5 --display 
 bindsym $mod+Shift+space exec $HOME/.config/scripts/autorandr
 
 # start a terminal
-bindsym $mod+Return exec cd $(xcwd) && alacritty -e tmux
+bindsym $mod+Return exec cd $(xcwd) && alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill

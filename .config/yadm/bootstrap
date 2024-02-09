@@ -49,7 +49,7 @@ function install_common {
     # common
     sudo apt install tmux flatpak curl build-essential make clang clangd cmake fonts-font-awesome gcc \
         openjdk-17-jre openjdk-17-jdk default-jre default-jdk git golang gpg grub-customizer 7zip \
-        htop python3 python-is-python3 ipython3 libreoffice nextcloud-desktop nmap npm lldb \
+        htop python3 python-is-python3 ipython3 nextcloud-desktop nmap npm lldb \
         openssh-client openssh-server openvpn okular pavucontrol pulseaudio virt-manager sddm xxd \
         xcwd network-manager pandoc btop duplicity 7zip gpg ripgrep python3-venv eog thunar dfc xclip \
         command-not-found gnome-screenshot urlview psmisc dracut plymouth yubikey-manager fido2-tools \
@@ -107,6 +107,7 @@ function post_reboot_install {
     echo "flatpak install flathub com.discordapp.Discord"
     echo "flatpak install flathub com.slack.Slack"
     echo "flatpak install flathub me.hyliu.fluentreader"
+    echo "flatpak install flathub org.onlyoffice.desktopeditors"
 
     # Spicetify
     printf "${Cyan}Spicetify:${Clear}https://spicetify.app/docs/getting-started\n"
