@@ -266,7 +266,7 @@ exec --no-startup-id nm-applet
 # Autoload
 
 exec brave-browser-stable
-exec --no-startup-id i3-msg $ws1; exec alacritty -e tmux
+exec --no-startup-id i3-msg $ws1; exec alacritty -e tmux attach-session -t 0
 
 exec -no-startup-id autorandr -c && feh --bg-scale --no-fehbg $HOME/Pictures/backgrounds/bebop.jpg
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
