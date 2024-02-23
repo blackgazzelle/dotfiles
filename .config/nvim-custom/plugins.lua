@@ -123,6 +123,7 @@ local plugins = {
       require("auto-session").setup({
         auto_session_use_git_branch = true,
         auto_save_enabled = true,
+        auto_session_suppress_dirs = { "~/", "~/Projects" , "~/Downloads", "/" }
       })
     end,
   },
