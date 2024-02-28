@@ -1,7 +1,7 @@
 configuration {
   modi: "window,run,ssh,drun,combi";
   location: 2;
-  terminal: "kitty";
+  terminal: "alacritty";
 
   font: " JetbrainsMono Nerd Font 14";
   line-margin: 10;
