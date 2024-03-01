@@ -66,7 +66,7 @@ local plugins = {
         "autopep8",
         "bash-language-server",
         "marksman",
-        "markdownlint"
+        "markdownlint",
       },
     },
   },
@@ -123,7 +123,7 @@ local plugins = {
       require("auto-session").setup({
         auto_session_use_git_branch = true,
         auto_save_enabled = true,
-        auto_session_suppress_dirs = { "~/", "~/Projects" , "~/Downloads", "/", "~/Desktop"}
+        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/", "~/Desktop" },
       })
     end,
   },
@@ -149,7 +149,7 @@ local plugins = {
   {
     "mfussenegger/nvim-dap",
     ft = { "python", "c", "c++", "rust" },
-    dependencies = {"rcarriga/nvim-dap-ui", "mfussenegger/nvim-dap-python"},
+    dependencies = { "rcarriga/nvim-dap-ui", "mfussenegger/nvim-dap-python" },
     config = function()
       require("custom.configs.dap")
     end,
@@ -245,8 +245,49 @@ local plugins = {
   },
   {
     "vimpostor/vim-tpipeline",
-    lazy=false
-  }
+    lazy = false,
+  },
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*", -- recommended, use latest release instead of latest commit
+    lazy = true,
+    ft = "markdown",
+    -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+    -- event = {
+    --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+    --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
+    --   "BufReadPre path/to/my-vault/**.md",
+    --   "BufNewFile path/to/my-vault/**.md",
+    -- },
+    dependencies = {
+      -- Required.
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {
+      workspaces = {
+        {
+          name = "GT",
+          path = "~/Nextcloud/Notes/GT/",
+        },
+        {
+          name = "THM",
+          path = "~/Nextcloud/Notes/thm/",
+        },
+        {
+          name = "Notes",
+          path = "~/Nextcloud/Notes",
+        },
+      },
+
+      daily_notes = {
+        -- Optional, if you keep daily notes in a separate directory.
+        folder = "Journal",
+      },
+      templates = {
+        subdir = "templates",
+      },
+    },
+  },
 }
 
 return plugins
