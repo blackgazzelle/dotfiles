@@ -266,16 +266,16 @@ local plugins = {
     opts = {
       workspaces = {
         {
+          name = "Notes",
+          path = "~/Nextcloud/Notes/",
+        },
+        {
           name = "GT",
           path = "~/Nextcloud/Notes/GT/",
         },
         {
           name = "THM",
           path = "~/Nextcloud/Notes/thm/",
-        },
-        {
-          name = "Notes",
-          path = "~/Nextcloud/Notes",
         },
       },
 
