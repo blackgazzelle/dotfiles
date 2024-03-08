@@ -274,5 +274,5 @@ exec_always $HOME/.config/scripts/launch.sh
 exec_always xset s 900
 exec_always xset dpms 0 0 1200
 exec_always --no-startup-id picom -b
-exec_always feh --bg-scale ~/Pictures/backgrounds/bebop.jpg
+exec_always feh --bg-scale ~/Pictures/backgrounds/bebop.jpg &
 
