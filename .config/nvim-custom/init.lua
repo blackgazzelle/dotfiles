@@ -6,7 +6,7 @@
 --   command = "tabdo wincmd =",
 -- })
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-vim.api.nvim_set_option("colorcolumn", "120")
-vim.api.nvim_set_option("relativenumber", true)
 vim.g.maplocalleader = ","
-vim.opt.conceallevel = 1
+vim.opt.conceallevel = 2
+vim.wo.relativenumber = true
+vim.opt.colorcolumn = "120"
