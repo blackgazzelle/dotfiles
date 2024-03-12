@@ -24,6 +24,7 @@ M.general = {
       end,
       "Starts zen mode and twilight",
     },
+    ["<leader>lg"] = {":LazyGit<CR>", "Enter LazyGit", opts = { noremap = true }}
   },
   v = {
     [">"] = { ">gv", "indent" },
