@@ -265,12 +265,12 @@ exec --no-startup-id nm-applet
 
 # Autoload
 
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 exec brave-browser-stable
 exec --no-startup-id i3-msg $ws1; exec alacritty -e tmux attach-session -t 0
-
-exec -no-startup-id autorandr -c && feh --bg-scale --no-fehbg $HOME/Pictures/backgrounds/bebop.jpg
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-exec_always $HOME/.config/scripts/launch.sh
 exec_always xset s 900
 exec_always xset dpms 0 0 1200
 exec_always --no-startup-id picom -b
+exec_always --no-startup-id autorandr -c && feh --bg-scale --no-fehbg "$HOME/Pictures/backgrounds/bebop.jpg"
+exec_always $HOME/.config/scripts/launch.sh
+
