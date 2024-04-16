@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require("configs.overrides")
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -30,13 +30,13 @@ local plugins = {
       {
         "jose-elias-alvarez/null-ls.nvim",
         config = function()
-          require("custom.configs.null-ls")
+          require("configs.null-ls")
         end,
       },
     },
     config = function()
-      require("plugins.configs.lspconfig")
-      require("custom.configs.lspconfig")
+      require("nvchad.configs.lspconfig")
+      require("configs.lspconfig")
     end, -- Override to setup mason-lspconfig
   },
 
@@ -140,7 +140,7 @@ local plugins = {
     ft = "rust",
     dependencies = "neovim/nvim-lspconfig",
     opts = function()
-      return require("custom.configs.rust-tools")
+      return require("configs.rust-tools")
     end,
     config = function(_, opts)
       require("rust-tools").setup(opts)
@@ -151,7 +151,7 @@ local plugins = {
     ft = { "python", "c", "c++", "rust" },
     dependencies = { "rcarriga/nvim-dap-ui", "mfussenegger/nvim-dap-python" },
     config = function()
-      require("custom.configs.dap")
+      require("configs.dap")
     end,
   },
   {
@@ -166,7 +166,7 @@ local plugins = {
   {
     "hrsh7th/nvim-cmp",
     opts = function()
-      local M = require("plugins.configs.cmp")
+      local M = require("nvchad.configs.cmp")
       table.insert(M.sources, { name = "crates" })
       return M
     end,
