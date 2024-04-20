@@ -5,8 +5,4 @@
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-vim.g.maplocalleader = ","
-vim.opt.conceallevel = 2
-vim.wo.relativenumber = true
-vim.opt.colorcolumn = "120"
+

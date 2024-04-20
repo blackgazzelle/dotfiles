@@ -1,4 +1,4 @@
-local overrides = require("configs.overrides")
+local overrides = require "configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -7,15 +7,15 @@ local plugins = {
   {
     "nvim-telescope/telescope.nvim",
     opts = function()
-      require("telescope").setup({
+      require("telescope").setup {
         extensions = {
           ["ui-select"] = {
-            require("telescope.themes").get_dropdown({}),
+            require("telescope.themes").get_dropdown {},
           },
         },
-      })
-      require("telescope").load_extension("ui-select")
-      require("telescope").load_extension("session-lens")
+      }
+      require("telescope").load_extension "ui-select"
+      require("telescope").load_extension "session-lens"
     end,
     dependencies = {
       "nvim-telescope/telescope-ui-select.nvim",
@@ -25,19 +25,17 @@ local plugins = {
 
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      -- format & linting
-      {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require("configs.null-ls")
-        end,
-      },
-    },
     config = function()
-      require("nvchad.configs.lspconfig")
-      require("configs.lspconfig")
+      require "nvchad.configs.lspconfig"
+      require "configs.lspconfig"
     end, -- Override to setup mason-lspconfig
+  },
+  {
+    "stevearc/conform.nvim",
+    event = "BufWritePre", -- uncomment for format on save
+    config = function()
+      require "configs.conform"
+    end,
   },
 
   -- override plugin configs
@@ -120,11 +118,11 @@ local plugins = {
     "rmagatti/auto-session",
     lazy = false,
     config = function()
-      require("auto-session").setup({
+      require("auto-session").setup {
         auto_session_use_git_branch = true,
         auto_save_enabled = true,
         auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/", "~/Desktop" },
-      })
+      }
     end,
   },
 
@@ -140,7 +138,7 @@ local plugins = {
     ft = "rust",
     dependencies = "neovim/nvim-lspconfig",
     opts = function()
-      return require("configs.rust-tools")
+      return require "configs.rust-tools"
     end,
     config = function(_, opts)
       require("rust-tools").setup(opts)
@@ -151,14 +149,14 @@ local plugins = {
     ft = { "python", "c", "c++", "rust" },
     dependencies = { "rcarriga/nvim-dap-ui", "mfussenegger/nvim-dap-python" },
     config = function()
-      require("configs.dap")
+      require "configs.dap"
     end,
   },
   {
     "saecki/crates.nvim",
     ft = { "rust", "toml" },
     config = function(_, opts)
-      local crates = require("crates")
+      local crates = require "crates"
       crates.setup(opts)
       crates.show()
     end,
@@ -166,7 +164,7 @@ local plugins = {
   {
     "hrsh7th/nvim-cmp",
     opts = function()
-      local M = require("nvchad.configs.cmp")
+      local M = require "nvchad.configs.cmp"
       table.insert(M.sources, { name = "crates" })
       return M
     end,
@@ -216,7 +214,7 @@ local plugins = {
       {
         "PaterJason/cmp-conjure",
         config = function()
-          local cmp = require("cmp")
+          local cmp = require "cmp"
           local config = cmp.get_config()
           table.insert(config.sources, {
             name = "buffer",
@@ -239,9 +237,6 @@ local plugins = {
       vim.g["conjure#debug"] = true
       vim.g["conjure#extract#tree_sitter#enabled"] = true
     end,
-  },
-  {
-    "davidmh/cspell.nvim",
   },
   {
     "vimpostor/vim-tpipeline",
