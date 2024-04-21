@@ -38,7 +38,17 @@ local plugins = {
     end,
   },
 
-  -- override plugin configs
+  {
+    "mfussenegger/nvim-lint",
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
+    config = function()
+      require "configs.nvim-lint"
+    end,
+  },
+
   {
     "williamboman/mason.nvim",
     opts = {
@@ -51,6 +61,9 @@ local plugins = {
         "html-lsp",
         "lua-language-server",
         "prettier",
+        "prettierd",
+        "taplo",
+        "yamlfix",
         "stylua",
         "typescript-language-server",
         "black",
@@ -60,11 +73,13 @@ local plugins = {
         "rust-analyzer",
         "beautysh",
         "cpplint",
-        "pyright",
+        "ruff-lsp",
+        "ruff",
         "autopep8",
         "bash-language-server",
         "marksman",
         "markdownlint",
+        "codespell",
       },
     },
   },
