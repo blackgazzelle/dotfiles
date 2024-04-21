@@ -8,6 +8,9 @@ vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 vim.opt.conceallevel = 2
 vim.wo.relativenumber = true
 vim.opt.colorcolumn = "120"
+vim.opt.spelllang = "en_us"
+vim.opt.spell = true
+vim.opt.spellsuggest = best, 9
 vim.api.nvim_create_user_command("Format", function(args)
   local range = nil
   if args.count ~= -1 then
