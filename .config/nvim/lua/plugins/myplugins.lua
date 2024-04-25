@@ -32,9 +32,33 @@ local plugins = {
   },
   {
     "stevearc/conform.nvim",
-    event = "BufWritePre", -- uncomment for format on save
-    config = function()
-      require "configs.conform"
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+
+    -- Everything in opts will be passed to setup()
+    opts = {
+      -- Define your formatters
+      formatters_by_ft = {
+        lua = { "stylua" },
+        css = { "prettierd", "prettier" },
+        html = { "prettierd", "prettier" },
+        json = { "prettierd", "prettier" },
+        python = { "ruff", "autopep8", "black", "isort", "autoflake" },
+        markdown = { "markdownlint", "prettier" },
+        c = { "clang_format" },
+        cpp = { "clang_format" },
+        rust = { "rustfmt" },
+        cmake = { "cmake_format" },
+        yaml = { "yamlfix" },
+        toml = { "taplo" },
+      },
+      -- Set up format-on-save
+      ["_"] = { "trim_whitespace" },
+      format_on_save = { timeout_ms = 500, lsp_fallback = true },
+    },
+    init = function()
+      -- If you want the formatexpr, here is the place to set it
+      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
     end,
   },
 
@@ -43,6 +67,7 @@ local plugins = {
     event = {
       "BufReadPre",
       "BufNewFile",
+      "BufWritePre",
     },
     config = function()
       require "configs.nvim-lint"

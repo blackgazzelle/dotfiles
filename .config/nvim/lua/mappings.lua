@@ -15,7 +15,9 @@ map("n", "<leader>z", function()
   }
 end, { desc = "General Starts zen mode and twilight" })
 map("n", "<leader>lg", ":LazyGit<CR>", { desc = "General Enter LazyGit", noremap = true })
-map("n", "<leader>fm", ":Format<CR>", { desc = "General format", noremap = true })
+map("n", "<leader>fm", function()
+  require("conform").format { async = true, lsp_fallback = true }
+end, { desc = "General format", noremap = true })
 
 map("v", ">", ">gv", { desc = "General indent" })
 
