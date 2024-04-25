@@ -187,7 +187,7 @@ local plugins = {
   {
     "mfussenegger/nvim-dap",
     ft = { "python", "c", "c++", "rust" },
-    dependencies = { "rcarriga/nvim-dap-ui", "mfussenegger/nvim-dap-python" },
+    dependencies = { "rcarriga/nvim-dap-ui", "mfussenegger/nvim-dap-python", "nvim-neotest/nvim-nio" },
     config = function()
       require "configs.dap"
     end,
