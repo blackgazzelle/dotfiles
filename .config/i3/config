@@ -45,9 +45,8 @@ smart_borders on
 
 # Set default locations for workspaces
 workspace $ws1 output DisplayPort-0
-workspace $ws2 output HDMI-A-1
-workspace $ws3 output HDMI-A-0
-workspace $ws2 output HDMI-A-1
+workspace $ws2 output HDMI-A-0
+workspace $ws3 output HDMI-A-1
 
 # Workspace loads
 assign [class="Brave-browser"] $ws2
