@@ -8,7 +8,7 @@ export ZSH="/home/gazzelle/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="gnzh"
+ZSH_THEME="refined"
 
 # AUTOCOMPLETION
 
@@ -83,7 +83,6 @@ setopt HIST_EXPIRE_DUPS_FIRST
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting poetry z bgnotify web-search debian tmux command-not-found compleat docker docker-compose colored-man-pages common-aliases catimg thefuck ssh-agent)
-
 zstyle :omz:plugins:ssh-agent lazy yes
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
 
@@ -126,6 +125,7 @@ export VISUAL='/usr/bin/nvim'
 export EDITOR='/usr/bin/nvim'
 export PAGER='/usr/bin/less'
 export BROWSER='/usr/bin/brave-browser-stable'
+export VIMCONF="$HOME/.config/nvim/"
 export PATH=$PATH:/home/gazzelle/.spicetify
 export GPG_TTY=$(tty)
 . "$HOME/.cargo/env"
