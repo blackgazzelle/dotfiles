@@ -43,8 +43,8 @@ local plugins = {
         css = { "prettierd", "prettier" },
         html = { "prettierd", "prettier" },
         json = { "prettierd", "prettier" },
-        python = { "ruff", "autopep8", "black", "isort", "autoflake" },
-        markdown = { "markdownlint", "prettier" },
+        python = { "ruff" },
+        markdown = { "mdformat" },
         c = { "clang_format" },
         cpp = { "clang_format" },
         rust = { "rustfmt" },
@@ -91,20 +91,15 @@ local plugins = {
         "yamlfix",
         "stylua",
         "typescript-language-server",
-        "black",
-        "isort",
-        "mypy",
-        "flake8",
         "rust-analyzer",
         "beautysh",
         "cpplint",
-        "ruff-lsp",
-        "ruff",
-        "autopep8",
+        "pyright",
         "bash-language-server",
         "marksman",
-        "markdownlint",
+        "mdformat",
         "codespell",
+        "ruff",
       },
     },
   },
@@ -323,21 +318,5 @@ local plugins = {
       },
     },
   },
-
-  {
-    "kdheepak/lazygit.nvim",
-    cmd = {
-      "LazyGit",
-      "LazyGitConfig",
-      "LazyGitCurrentFile",
-      "LazyGitFilter",
-      "LazyGitFilterCurrentFile",
-    },
-    -- optional for floating window border decoration
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-  },
 }
-
 return plugins

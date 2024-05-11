@@ -1,8 +1,8 @@
 local lint = require "lint"
 
 lint.linters_by_ft = {
-  python = { "ruff", "mypy", "flake8" },
-  markdown = { "markdownlint" },
+  python = { "ruff" },
+  -- markdown = { "markdownlint" },
   cpp = { "cpplint" },
   c = { "cpplint" },
 }
