@@ -23,15 +23,10 @@ map("v", ">", ">gv", { desc = "General indent" })
 
 map({ "v", "i" }, "jk", "<esc>", { desc = "General escape" })
 
-map(
-  "n",
-  "<leader>nt",
-  'i<C-R>=strftime("%Y-%m-%d %a %H:%M %Z")<CR>--<Esc>',
-  { desc = "General Print time", silent = true }
-)
-map("i", "<leader>nt", '<C-R>=strftime("%Y-%m-%d %a %H:%M %Z")<CR>--', { desc = "General Print time", silent = true })
-map("i", "<leader>nh", ">>>", { desc = "General insert note header" })
-map("n", "<leader>nh", "i>>><esc>", { desc = "General insert note header" })
+map("n", "<C-nt>", 'i<C-R>=strftime("%Y-%m-%d %a %H:%M %Z")<CR>--<Esc>', { desc = "General Print time", silent = true })
+map("i", "<C-nt>", '<C-R>=strftime("%Y-%m-%d %a %H:%M %Z")<CR>--', { desc = "General Print time", silent = true })
+map("i", "<C-nh>", ">>>", { desc = "General insert note header" })
+map("n", "<C-nh>", "i>>><esc>", { desc = "General insert note header" })
 -- Venn
 map("n", "<leader>dr", function()
   local venn_enabled = vim.inspect(vim.b.venn_enabled)
