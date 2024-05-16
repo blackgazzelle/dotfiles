@@ -49,7 +49,7 @@ function install_common {
     sudo apt install tmux flatpak curl build-essential make clang clangd cmake fonts-font-awesome gcc \
         openjdk-17-jre openjdk-17-jdk default-jre default-jdk git golang gpg grub-customizer 7zip \
         htop python3 python-is-python3 ipython3 nextcloud-desktop nmap npm lldb \
-        openssh-client openssh-server openvpn okular pavucontrol pulseaudio virt-manager sddm xxd \
+        openssh-client openssh-server openvpn okular pavucontrol pulseaudio virt-manager xxd \
         xcwd network-manager pandoc btop duplicity gpg ripgrep python3-venv eog thunar dfc xclip \
         command-not-found gnome-screenshot urlview psmisc dracut plymouth yubikey-manager fido2-tools \
         anacron pipx apt-listbugs apt-listchanges timeshift desktop-base ranger gdb luarocks python3-pip \
