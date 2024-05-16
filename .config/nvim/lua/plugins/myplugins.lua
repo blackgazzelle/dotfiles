@@ -93,7 +93,6 @@ local plugins = {
         "typescript-language-server",
         "rust-analyzer",
         "beautysh",
-        "cpplint",
         "pyright",
         "bash-language-server",
         "marksman",
