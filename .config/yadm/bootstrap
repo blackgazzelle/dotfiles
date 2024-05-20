@@ -51,7 +51,7 @@ function install_common {
         htop python3 python-is-python3 ipython3 nextcloud-desktop nmap npm lldb \
         openssh-client openssh-server openvpn okular pavucontrol pulseaudio virt-manager xxd \
         xcwd network-manager pandoc btop duplicity gpg ripgrep python3-venv eog thunar dfc xclip \
-        command-not-found gnome-screenshot urlview psmisc dracut plymouth yubikey-manager fido2-tools \
+        command-not-found gnome-screenshot urlview psmisc yubikey-manager fido2-tools \
         anacron pipx apt-listbugs apt-listchanges timeshift desktop-base ranger gdb luarocks python3-pip \
         coreutils dateutils ncal cmake-format bear neovim curl wget zip -y
 
