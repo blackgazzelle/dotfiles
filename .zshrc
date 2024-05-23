@@ -133,8 +133,14 @@ export GPG_TTY=$(tty)
 # Nord dircolors
 test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
+# load aliases
 if [ -f ~/.aliases ]; then
     . ~/.aliases
+fi
+
+# Load any tokens
+if [ -f ~/.env_tokens ]; then
+  . ~/.env_tokens
 fi
 
 # ssh-agent and gpg agent
