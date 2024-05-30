@@ -296,15 +296,15 @@ local plugins = {
       workspaces = {
         {
           name = "Notes",
-          path = "~/Nextcloud/Notes/",
+          path = "~/Nextcloud/Share/Notes/",
         },
         {
           name = "GT",
-          path = "~/Nextcloud/Notes/GT/",
+          path = "~/Nextcloud/Share/Notes/GT/",
         },
         {
           name = "THM",
-          path = "~/Nextcloud/Notes/thm/",
+          path = "~/Nextcloud/Share/Notes/thm/",
         },
       },
 
