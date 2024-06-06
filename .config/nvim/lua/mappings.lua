@@ -65,3 +65,21 @@ map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP [C]ode [A
 map("n", "<leader>tl", function()
   lint.try_lint()
 end, { desc = "LSP Trigger linting" })
+
+-- Trouble
+map({ "n" }, "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble Diagnostics (Trouble)" })
+map(
+  { "n" },
+  "<leader>xX",
+  "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+  { desc = "Trouble Buffer Diagnostics (Trouble)" }
+)
+map({ "n" }, "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Trouble Symbols (Trouble)" })
+map(
+  { "n" },
+  "<leader>cl",
+  "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+  { desc = "Trouble LSP Definitions / references / ... (Trouble)" }
+)
+map({ "n" }, "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Trouble Location List (Trouble)" })
+map({ "n" }, "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Trouble Quickfix List (Trouble)" })
