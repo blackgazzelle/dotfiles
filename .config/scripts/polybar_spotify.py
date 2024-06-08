@@ -134,8 +134,9 @@ try:
                                      play_pause=play_pause, 
                                      album=album), trunclen + 4))
 
-except Exception as e:
-    if isinstance(e, dbus.exceptions.DBusException):
+except (dbus.exceptions.DBusException, dbus.exceptions.MissingErrorHandlerException):
         print('')
-    else:
+except Exception as e:
         print(e)
+        with open("spotify_log", "w") as fp:
+            fp.write(str(e))
