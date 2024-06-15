@@ -324,7 +324,7 @@ local plugins = {
   },
   {
     "NeogitOrg/neogit",
-    lazy = F
+    lazy = false,
     dependencies = {
       "nvim-lua/plenary.nvim", -- required
       "sindrets/diffview.nvim", -- optional - Diff integration
