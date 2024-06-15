@@ -83,3 +83,9 @@ map(
 )
 map({ "n" }, "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Trouble Location List (Trouble)" })
 map({ "n" }, "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Trouble Quickfix List (Trouble)" })
+
+-- Telescope
+map({ "n", "v" }, "z=", function()
+  local builtin = require "telescope.builtin"
+  builtin.spell_suggest(require("telescope.themes").get_cursor {})
+end, { desc = "Telescope spellcheck " })
