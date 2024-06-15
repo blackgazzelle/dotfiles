@@ -7,7 +7,7 @@ map("n", "<leader>rcu", function()
   require("crates").upgrade_all_crates()
 end, { desc = "General rust update crates" })
 map("n", "<leader>p", "<cmd>PasteImage<cr>", { desc = "General paste clipboard image" })
-map("n", "<leader>z", function()
+map("n", "<leader>zz", function()
   require("zen-mode").toggle {
     window = {
       width = 0.9, -- width will be 85% of the editor width
