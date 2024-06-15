@@ -200,6 +200,7 @@ local plugins = {
     opts = function()
       local M = require "nvchad.configs.cmp"
       table.insert(M.sources, { name = "crates" })
+      table.insert(M.sources, { name = "neorg" })
       return M
     end,
   },
@@ -277,47 +278,6 @@ local plugins = {
     lazy = false,
   },
   {
-    "epwalsh/obsidian.nvim",
-    version = "*", -- recommended, use latest release instead of latest commit
-    lazy = true,
-    ft = "markdown",
-    -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-    -- event = {
-    --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-    --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-    --   "BufReadPre path/to/my-vault/**.md",
-    --   "BufNewFile path/to/my-vault/**.md",
-    -- },
-    dependencies = {
-      -- Required.
-      "nvim-lua/plenary.nvim",
-    },
-    opts = {
-      workspaces = {
-        {
-          name = "Notes",
-          path = "~/Nextcloud/Share/Notes/",
-        },
-        {
-          name = "GT",
-          path = "~/Nextcloud/Share/Notes/GT/",
-        },
-        {
-          name = "THM",
-          path = "~/Nextcloud/Share/Notes/thm/",
-        },
-      },
-
-      daily_notes = {
-        -- Optional, if you keep daily notes in a separate directory.
-        folder = "Journal",
-      },
-      templates = {
-        subdir = "templates",
-      },
-    },
-  },
-  {
     "folke/trouble.nvim",
     opts = {}, -- for default options, refer to the configuration section for custom setup.
     cmd = "Trouble",
@@ -333,6 +293,34 @@ local plugins = {
       "nvim-telescope/telescope.nvim", -- optional
     },
     config = true,
+  },
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+    config = true,
+  },
+  {
+    "nvim-neorg/neorg",
+    dependencies = { "luarocks.nvim" },
+    lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+    version = "*", -- Pin Neorg to the latest stable release
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {},
+          ["core.concealer"] = {},
+
+          ["core.dirman"] = {
+            config = {
+              workspaces = {
+                notes = "~/Nextcloud/Share/Notes/",
+                projects = "~/Projects/",
+              },
+            },
+          },
+        },
+      }
+    end,
   },
 }
 return plugins
