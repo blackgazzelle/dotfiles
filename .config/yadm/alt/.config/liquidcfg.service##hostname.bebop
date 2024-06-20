@@ -1,0 +1,10 @@
+[Unit]
+Description=AIO startup service
+
+[Service]
+Type=oneshot
+ExecStart=liquidctl initialize all
+ExecStart=liquidctl --match kraken set sync color tai-chi ff0000
+
+[Install]
+WantedBy=default.target
