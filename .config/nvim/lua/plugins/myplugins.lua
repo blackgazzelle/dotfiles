@@ -302,6 +302,7 @@ local plugins = {
   {
     "nvim-neorg/neorg",
     version = "*", -- Pin Neorg to the latest stable release
+    ft = "norg",
     config = function()
       require("neorg").setup {
         load = {
