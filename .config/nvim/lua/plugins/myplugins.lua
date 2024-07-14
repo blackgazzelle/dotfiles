@@ -51,6 +51,7 @@ local plugins = {
         cmake = { "cmake_format" },
         yaml = { "yamlfix" },
         toml = { "taplo" },
+        proto = { "buf" },
       },
       -- Set up format-on-save
       ["_"] = { "trim_whitespace" },
@@ -99,6 +100,7 @@ local plugins = {
         "mdformat",
         "codespell",
         "ruff",
+        "buf",
       },
     },
   },
