@@ -16,7 +16,7 @@ map("n", "<leader>zz", function()
 end, { desc = "General Starts zen mode and twilight" })
 map("n", "<leader>ng", ":Neogit<CR>", { desc = "General Enter Neogit", noremap = true })
 map("n", "<leader>fm", function()
-  require("conform").format { async = true, lsp_fallback = true }
+  require("conform").format { async = true, lsp_format = "fallback"}
 end, { desc = "General format", noremap = true })
 
 map("v", ">", ">gv", { desc = "General indent" })

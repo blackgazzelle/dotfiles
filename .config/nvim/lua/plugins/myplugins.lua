@@ -55,7 +55,7 @@ local plugins = {
       },
       -- Set up format-on-save
       ["_"] = { "trim_whitespace" },
-      format_on_save = { timeout_ms = 500, lsp_fallback = true },
+      format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
     },
     init = function()
       -- If you want the formatexpr, here is the place to set it
