@@ -134,5 +134,8 @@ try:
                                      play_pause=play_pause, 
                                      album=album), trunclen + 4))
 
-except Exception:
-    print('')
+except Exception as e:
+    if isinstance(e, dbus.exceptions.DBusException):
+        print('')
+    else:
+        print(e)
