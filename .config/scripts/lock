@@ -69,7 +69,7 @@ if [[ -e /dev/fd/${XSS_SLEEP_LOCK_FD:--1} ]]; then
     trap kill_i3lock TERM INT
 
     # we have to make sure the locker does not inherit a copy of the lock fd
-    i3lock -n $i3lock_options --date-str="%A, %Y-%m-%d" --greeter-text="Welcome, Gazzelle" {XSS_SLEEP_LOCK_FD}<&-
+    i3lock -n $i3lock_options --date-str="%A, %Y-%m-%d" --greeter-text="Welcome $USER" {XSS_SLEEP_LOCK_FD}<&-
 
     # now close our fd (only remaining copy) to indicate we're ready to sleep
     exec {XSS_SLEEP_LOCK_FD}<&-
