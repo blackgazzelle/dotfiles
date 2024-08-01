@@ -98,7 +98,7 @@ bindsym $mod+Control+Down exec --no-startup-id "ddcutil setvcp 10 - 5 --display 
 bindsym $mod+Shift+space exec $HOME/.config/scripts/autorandr
 
 # start a terminal
-bindsym $mod+Return exec cd $(xcwd) && alacritty
+bindsym $mod+Return exec cd $(xcwd) && wezterm 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -267,7 +267,7 @@ exec --no-startup-id nm-applet
 
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 exec brave-browser-stable
-exec --no-startup-id i3-msg $ws1; exec alacritty -e tmux attach-session -t 0
+exec --no-startup-id i3-msg $ws1; exec wezterm
 exec_always xset s 900
 exec_always xset dpms 0 0 1200
 exec_always --no-startup-id picom -b

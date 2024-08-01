@@ -276,8 +276,7 @@ local plugins = {
     end,
   },
   {
-    "vimpostor/vim-tpipeline",
-    lazy = false,
+    "mrjones2014/smart-splits.nvim",
   },
   {
     "folke/trouble.nvim",

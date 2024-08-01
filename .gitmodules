@@ -13,3 +13,6 @@
 [submodule ".config/i3/i3lock-color"]
 	path = .config/i3/i3lock-color
 	url = https://github.com/Raymo111/i3lock-color.git
+[submodule ".config/auto-cpufreq"]
+	path = .config/auto-cpufreq
+	url = https://github.com/AdnanHodzic/auto-cpufreq.git
