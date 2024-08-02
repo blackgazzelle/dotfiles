@@ -277,6 +277,7 @@ local plugins = {
   },
   {
     "mrjones2014/smart-splits.nvim",
+    lazy = false,
   },
   {
     "folke/trouble.nvim",

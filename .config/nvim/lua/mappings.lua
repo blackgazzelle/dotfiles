@@ -16,7 +16,7 @@ map("n", "<leader>zz", function()
 end, { desc = "General Starts zen mode and twilight" })
 map("n", "<leader>ng", ":Neogit<CR>", { desc = "General Enter Neogit", noremap = true })
 map("n", "<leader>fm", function()
-  require("conform").format { async = true, lsp_format = "fallback"}
+  require("conform").format { async = true, lsp_format = "fallback" }
 end, { desc = "General format", noremap = true })
 
 map("v", ">", ">gv", { desc = "General indent" })
@@ -89,3 +89,38 @@ map({ "n", "v" }, "<leader>sc", function()
   local builtin = require "telescope.builtin"
   builtin.spell_suggest(require("telescope.themes").get_cursor {})
 end, { desc = "Telescope spellcheck " })
+
+-- Switch pane
+map("n", "<C-h>", function()
+  local args = { same_row = boolean, at_edge = "wrap" }
+  require("smart-splits").move_cursor_left(args)
+end, { desc = "Splits Move Pane Left" })
+map("n", "<C-l>", function()
+  local args = { same_row = boolean, at_edge = "wrap" }
+  require("smart-splits").move_cursor_right(args)
+end, { desc = "Splits Move Pane Right" })
+map("n", "<C-k>", function()
+  local args = { same_row = boolean, at_edge = "wrap" }
+  require("smart-splits").move_cursor_up(args)
+end, { desc = "Splits Move Pane Up" })
+map("n", "<C-j>", function()
+  local args = { same_row = boolean, at_edge = "wrap" }
+  require("smart-splits").move_cursor_down(args)
+end, { desc = "Splits Move Pane Down" })
+
+-- Resize pane
+map("n", "<M-h>", function()
+  require("smart-splits").resize_left(5)
+end, { desc = "Splits Resize Pane Left" })
+map("n", "<M-l>", function()
+  require("smart-splits").resize_right(5)
+end, { desc = "Splits Resize Pane Right" })
+map("n", "<M-k>", function()
+  require("smart-splits").resize_up(5)
+end, { desc = "Splits Resize Pane Up" })
+map("n", "<M-j>", function()
+  require("smart-splits").resize_down(5)
+end, { desc = "Splits Resize Pane Down" })
+map("n", "<leader>rs", function()
+  require("smart-splits").start_resize_mode()
+end, { desc = "Splits Start Resize Mode" })
