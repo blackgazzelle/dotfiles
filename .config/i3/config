@@ -53,6 +53,7 @@ assign [class="Brave-browser"] $ws2
 for_window [class="Spotify"] move to workspace $ws3
 assign [class="discord"] $ws4
 assign [class="Slack"] $ws4
+assign [class="Signal"] $ws4
 assign [class="thunderbird-default"] $ws5
 assign [class="steam"] $ws10
 for_window [window_role="pop-up"]                       floating enable
