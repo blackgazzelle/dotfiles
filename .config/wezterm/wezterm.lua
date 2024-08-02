@@ -7,7 +7,7 @@ local config = wezterm.config_builder()
 local smart_splits = wezterm.plugin.require("https://github.com/mrjones2014/smart-splits.nvim")
 
 -- set colorscheme
-config.color_scheme = "nord"
+config.color_scheme = "Nord (base16)"
 
 -- set font
 config.font = wezterm.font("JetBrains Mono NF")
