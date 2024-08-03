@@ -88,6 +88,22 @@ config.keys = {
 	{ key = "x", mods = "LEADER", action = act.CloseCurrentTab({ confirm = true }) },
 	-- search like tmux
 	{ key = "/", mods = "LEADER", action = act.Search({ CaseInSensitiveString = "" }) },
+	-- rename a tab
+	{
+		key = ",",
+		mods = "LEADER",
+		action = act.PromptInputLine({
+			description = "Enter new name for tab",
+			action = wezterm.action_callback(function(window, pane, line)
+				-- line will be `nil` if they hit escape without entering anything
+				-- An empty string if they just hit enter
+				-- Or the actual line of text they wrote
+				if line then
+					window:active_tab():set_title(line)
+				end
+			end),
+		}),
+	},
 	--
 	split_nav("move", "h"),
 	split_nav("move", "j"),
