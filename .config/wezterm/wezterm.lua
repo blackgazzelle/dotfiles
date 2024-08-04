@@ -131,6 +131,23 @@ for i = 1, 8 do
 	})
 end
 
+-- Mouse bidning for copy and paste
+config.mouse_bindings = {
+	{
+		event = { Down = { streak = 1, button = "Right" } },
+		mods = "NONE",
+		action = wezterm.action_callback(function(window, pane)
+			local has_selection = window:get_selection_text_for_pane(pane) ~= ""
+			if has_selection then
+				window:perform_action(act.CopyTo("ClipboardAndPrimarySelection"), pane)
+				window:perform_action(act.ClearSelection, pane)
+			else
+				window:perform_action(act({ PasteFrom = "Clipboard" }), pane)
+			end
+		end),
+	},
+}
+
 config.window_decorations = "RESIZE"
 config.use_dead_keys = false
 config.scrollback_lines = 5000
