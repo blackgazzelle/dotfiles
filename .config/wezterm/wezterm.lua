@@ -77,8 +77,6 @@ config.keys = {
 	{ mods = "LEADER", key = "s", action = act.PaneSelect({
 		mode = "SwapWithActive",
 	}) },
-	-- vim copy mode
-	{ key = "Enter", mods = "LEADER", action = act.ActivateCopyMode },
 	-- spawn tab
 	{ mods = "LEADER", key = "c", action = act.SpawnTab("CurrentPaneDomain") },
 	-- switch tab
@@ -114,6 +112,9 @@ config.keys = {
 	split_nav("resize", "j"),
 	split_nav("resize", "k"),
 	split_nav("resize", "l"),
+
+	-- vim copy mode
+	{ key = "Enter", mods = "LEADER", action = act.ActivateCopyMode },
 }
 
 -- add in keys to switch tab with tab number
@@ -131,7 +132,7 @@ for i = 1, 8 do
 	})
 end
 
--- Mouse bidning for copy and paste
+-- Mouse binding for copy and paste
 config.mouse_bindings = {
 	{
 		event = { Down = { streak = 1, button = "Right" } },
