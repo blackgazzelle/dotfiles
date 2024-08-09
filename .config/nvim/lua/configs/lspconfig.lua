@@ -52,3 +52,11 @@ lspconfig.ruff.setup {
 lspconfig.clangd.setup {
   filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "cc", "h", "hh", "hpp" },
 }
+
+lspconfig.harper_ls.setup {
+  settings = {
+    ["harper-ls"] = {
+      userDictPath = "~/.dict.txt",
+    },
+  },
+}

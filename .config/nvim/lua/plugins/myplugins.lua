@@ -101,6 +101,7 @@ local plugins = {
         "codespell",
         "ruff",
         "buf",
+        "harper-ls",
       },
     },
   },
