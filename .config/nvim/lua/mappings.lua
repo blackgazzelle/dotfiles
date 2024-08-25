@@ -27,6 +27,7 @@ map("n", "<C-nt>", 'i<C-R>=strftime("%Y-%m-%d %a %H:%M %Z")<CR>--<Esc>', { desc 
 map("i", "<C-nt>", '<C-R>=strftime("%Y-%m-%d %a %H:%M %Z")<CR>--', { desc = "General Print time", silent = true })
 map("i", "<C-nh>", ">>>", { desc = "General insert note header" })
 map("n", "<C-nh>", "i>>><esc>", { desc = "General insert note header" })
+map("n", "zz", ":update<CR>", { desc = "General save document" })
 -- Venn
 map("n", "<leader>dr", function()
   local venn_enabled = vim.inspect(vim.b.venn_enabled)

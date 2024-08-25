@@ -13,6 +13,7 @@ config.color_scheme = "Nord (base16)"
 
 -- set font
 config.font = wezterm.font("JetBrains Mono NF")
+config.font_size = 10
 
 -- set leader for terminal
 config.leader = { key = " ", mods = "CTRL", timeout_milliseconds = 1000 }
