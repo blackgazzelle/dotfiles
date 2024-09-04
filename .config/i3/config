@@ -25,7 +25,7 @@ font xft:JetBrainsNL NF, Font Awesome 10
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: Terminal "
-set $ws2 "2: Brave 󰖟"
+set $ws2 "2: Browser 󰖟"
 set $ws3 "3: Spotify "
 set $ws4 "4: Messaging 󰙯/"
 set $ws5 "5: Email "
@@ -50,6 +50,7 @@ workspace $ws3 output DisplayPort-1
 
 # Workspace loads
 assign [class="Brave-browser"] $ws2
+assign [class="firefox"] $ws2
 for_window [class="Spotify"] move to workspace $ws3
 assign [class="discord"] $ws4
 assign [class="Slack"] $ws4
