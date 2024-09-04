@@ -130,6 +130,9 @@ local plugins = {
         "rust",
         "go",
       },
+      highlight = {
+        enable = true,
+      },
     },
   },
 

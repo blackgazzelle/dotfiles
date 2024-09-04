@@ -93,8 +93,8 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 # PC Brightness
-bindsym $mod+Control+Up exec --no-startup-id "ddcutil setvcp 10 + 5 --display 1; ddcutil setvcp 10 + 5 --display 2; ddcutil setvcp 10 + 5 --display 3"
-bindsym $mod+Control+Down exec --no-startup-id "ddcutil setvcp 10 - 5 --display 1; ddcutil setvcp 10 - 5 --display 2; ddcutil setvcp 10 - 5 --display 3"
+bindsym $mod+Control+Up exec --no-startup-id "ddcutil setvcp 10 + 10 --display 1; ddcutil setvcp 10 + 10 --display 2; ddcutil setvcp 10 + 10 --display 3"
+bindsym $mod+Control+Down exec --no-startup-id "ddcutil setvcp 10 - 10 --display 1; ddcutil setvcp 10 - 10 --display 2; ddcutil setvcp 10 - 10 --display 3"
 
 # Autorandr switch 
 bindsym $mod+Shift+space exec $HOME/.config/scripts/autorandr

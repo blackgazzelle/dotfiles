@@ -56,7 +56,9 @@ lspconfig.clangd.setup {
 lspconfig.harper_ls.setup {
   settings = {
     ["harper-ls"] = {
-      userDictPath = "~/.dict.txt",
+      codeActions = {
+        forceStable = true,
+      },
     },
   },
 }
