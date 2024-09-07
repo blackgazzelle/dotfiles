@@ -91,7 +91,6 @@ local plugins = {
         "taplo",
         "yamlfix",
         "stylua",
-        "typescript-language-server",
         "rust-analyzer",
         "beautysh",
         "pyright",
@@ -332,6 +331,7 @@ local plugins = {
     "m4xshen/hardtime.nvim",
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
     opts = {},
+    lazy = false,
   },
 }
 return plugins
