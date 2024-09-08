@@ -1,5 +1,5 @@
 -- Setup configuration with dap-ui
-local dap, dapui = require("dap"), require("dapui")
+local dap, dapui = require "dap", require "dapui"
 dap.listeners.before.attach.dapui_config = function()
   dapui.open()
 end
@@ -12,7 +12,8 @@ end
 dap.listeners.before.event_exited.dapui_config = function()
   dapui.close()
 end
-
+-- Setup dap for python
+require("dap-python").setup "python"
 -- gdb setup for C/C++/Rust -- Need gdb 14+ :(
 --dap.adapters.gdb = {
 --  type = "executable",
