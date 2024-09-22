@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 xrdb -merge ~/.Xresources
+/usr/bin/polychromatic-cli -o static -c FF0000
+/usr/bin/unclutter &
 exec /usr/bin/i3
-exec /usr/bin/polychromatic-cli -o static -c FF0000
-exec /usr/bin/unclutter &
