@@ -6,10 +6,12 @@ local config = wezterm.config_builder()
 local act = wezterm.action
 
 local smart_splits = wezterm.plugin.require("https://github.com/mrjones2014/smart-splits.nvim")
--- TODO
--- add n/p to go back and forth on tabs
+
 -- set colorscheme
 config.color_scheme = "Nord (base16)"
+
+-- turn off bell
+config.audible_bell = "Disabled"
 
 -- set font
 config.font = wezterm.font("JetBrains Mono NF")
