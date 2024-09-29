@@ -1,14 +1,20 @@
+-- This file needs to have same structure as nvconfig.lua 
+-- https://github.com/NvChad/ui/blob/v2.5/lua/nvconfig.lua
+-- Please read that file to know all available options :( 
+
 ---@type ChadrcConfig
 local M = {}
 
--- Path to overriding theme and highlights files
-local highlights = require "highlights"
-M.ui = {
-  theme = "nord",
-  theme_toggle = { "nord", "one_light" },
+M.base46 = {
+	theme = "nord",
 
-  hl_override = highlights.override,
-  hl_add = highlights.add,
+	hl_override = {
+		Comment = { italic = true },
+		["@comment"] = { italic = true },
+	},
+}
+
+M.ui = {
   statusline = {
     theme = "vscode_colored",
   },
@@ -43,11 +49,37 @@ M.ui = {
       "   ▝▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓▓▓▘  ",
     },
   },
+
+  term = {
+    winopts = { number = true, relativenumber = true }
+  }
 }
 
--- M.plugins = "plugins"
+M.mason = {
+  pkgs = {
+      "clang-format",
+      "clangd",
+      "css-lsp",
+      "deno",
+      "html-lsp",
+      "lua-language-server",
+      "prettier",
+      "prettierd",
+      "taplo",
+      "yamlfix",
+      "stylua",
+      "rust-analyzer",
+      "beautysh",
+      "pyright",
+      "bash-language-server",
+      "marksman",
+      "mdformat",
+      "codespell",
+      "ruff",
+      "buf",
+      "harper-ls",
+  },
+}
 
--- check core.mappings for table structure
--- M.mappings = require "mappings"
 
 return M
