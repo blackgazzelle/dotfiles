@@ -296,4 +296,22 @@ return {
     opts = {},
     lazy = false,
   },
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false, -- Recommended
+    -- ft = "markdown" -- If you decide to lazy-load anyway
+    opts = function()
+      local presets = require "markview.presets"
+      require("markview").setup {
+        modes = { "n", "i", "nc", "c" },
+        hybrid_modes = { "n", "nc", "c" },
+        checkboxes = presets.checkboxes.nerd,
+        headings = presets.headings.arrowed,
+      }
+    end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
 }

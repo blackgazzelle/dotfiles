@@ -54,7 +54,8 @@ function install_common {
         xcwd network-manager pandoc btop duplicity gpg ripgrep python3-venv eog thunar dfc xclip \
         command-not-found gnome-screenshot urlview psmisc yubikey-manager fido2-tools \
         anacron pipx apt-listbugs apt-listchanges timeshift desktop-base ranger gdb luarocks python3-pip \
-        coreutils dateutils ncal cmake-format bear neovim curl wget zip firefox -y
+        coreutils dateutils ncal cmake-format bear neovim curl wget zip firefox \
+        fonts-noto-extra fonts-not-color-emoji fonts-symbola -y
 
     # Terminal
     sudo apt install alacritty zsh fzf -y
