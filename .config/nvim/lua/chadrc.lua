@@ -74,6 +74,7 @@ M.mason = {
     "buf",
     "harper-ls",
     "typescript-language-server",
+    "codelldb",
   },
 }
 

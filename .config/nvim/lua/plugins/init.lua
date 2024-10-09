@@ -165,6 +165,11 @@ return {
   },
 
   {
+    "mrcjkb/rustaceanvim",
+    lazy = false, -- This plugin is already lazy
+  },
+
+  {
     "hrsh7th/nvim-cmp",
     opts = function()
       local M = require "nvchad.configs.cmp"
