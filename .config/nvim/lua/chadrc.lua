@@ -75,6 +75,7 @@ M.mason = {
     "harper-ls",
     "typescript-language-server",
     "codelldb",
+    "cpptools",
   },
 }
 

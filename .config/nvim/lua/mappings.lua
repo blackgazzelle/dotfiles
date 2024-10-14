@@ -56,11 +56,22 @@ map("v", "<leader>drf", ":VBox<CR>", { desc = "Venn Surround Visual Selection in
 
 -- Dap
 map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "DAP Toggle breakpoint" })
-map("n", "<leader>dus", function()
-  local widgets = require "dap.ui.widgets"
-end, { desc = "DAP Open debugging sidebar" })
 map("n", "<leader>dc", "<cmd> DapContinue <CR>", { desc = "DAP Continue from breakpoint" })
-
+map("n", "<leader>dl", function()
+  require("dap").run_last()
+end, { desc = "DAP run last" })
+map("n", "<leader>dp", function()
+  require("dap").repl.open()
+end, { desc = "DAP open repl" })
+map("n", "<leader>dso", function()
+  require("dap").step_over()
+end, { desc = "DAP Step over" })
+map("n", "<leader>dsi", function()
+  require("dap").step_into()
+end, { desc = "DAP Step into" })
+map("n", "<leader>dsu", function()
+  require("dap").step_out()
+end, { desc = "DAP Step out(up)" })
 -- LSP
 map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP [C]ode [A]ction" })
 map("n", "<leader>tl", function()
