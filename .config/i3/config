@@ -208,14 +208,17 @@ bindsym $mod+Shift+w reload
 bindsym $mod+Shift+r restart
 
 # MISC Key bindings
+set $launcher-clipboard-insert clipcat-menu insert 
+set $launcher-clipboard-remove clipcat-menu remove
 bindsym $mod+b exec brave-browser-stable
 bindsym $mod+y move workspace to output left
 bindsym $mod+Shift+s exec flatpak run com.spotify.Client
 bindsym $mod+Shift+x exec $HOME/.config/scripts/lock
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
-bindsym $mod+p exec xfce4-screenshooter
-
+bindsym $mod+Shift+p exec xfce4-screenshooter
+bindsym $mod+p exec $launcher-clipboard-insert
+bindsym $mod+o exec $launcher-clipboard-remove
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -270,6 +273,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 exec brave-browser-stable
 exec --no-startup-id i3-msg $ws1; exec wezterm
+exec_always --no-startup-id clipcatd
 exec_always xset s 900
 exec_always xset dpms 0 0 1200
 exec_always --no-startup-id picom -b
