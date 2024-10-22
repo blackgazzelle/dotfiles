@@ -6,6 +6,7 @@ typeset -A mode
 mode=(
   [Desktop]="autorandr --load desktop"
   [Laptop]="autorandr --load laptop"
+  [Test Mode]="autorandr --load testmode"
   [Cancel]=""
 )
 
