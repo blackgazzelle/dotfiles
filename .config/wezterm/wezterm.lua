@@ -31,13 +31,13 @@ end
 -- `pane:get_foreground_process_name()` can have high and highly variable
 -- latency, so the other implementation of `is_vim()` will be more
 -- performant as well.
-local function is_vim(pane)
-	-- This gsub is equivalent to POSIX basename(3)
-	-- Given "/foo/bar" returns "bar"
-	-- Given "c:\\foo\\bar" returns "bar"
-	local process_name = string.gsub(pane:get_foreground_process_name(), "(.*[/\\])(.*)", "%2")
-	return process_name == "nvim" or process_name == "vim"
-end
+--local function is_vim(pane)
+--	-- This gsub is equivalent to POSIX basename(3)
+--	-- Given "/foo/bar" returns "bar"
+--	-- Given "c:\\foo\\bar" returns "bar"
+--	local process_name = string.gsub(pane:get_foreground_process_name(), "(.*[/\\])(.*)", "%2")
+--	return process_name == "nvim" or process_name == "vim"
+--end
 
 local direction_keys = {
 	h = "Left",
