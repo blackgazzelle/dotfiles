@@ -4,7 +4,7 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "bashls", "marksman", "taplo", "bufls", "lua_ls", "ts_ls" }
+local servers = { "html", "cssls", "bashls", "marksman", "taplo", "buf_ls", "lua_ls", "ts_ls" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
