@@ -47,6 +47,7 @@ smart_borders on
 workspace $ws1 output DisplayPort-0
 workspace $ws2 output HDMI-A-0
 workspace $ws3 output DisplayPort-1
+workspace $ws10 output DisplayPort-0
 
 # Workspace loads
 assign [class="Brave-browser"] $ws2
