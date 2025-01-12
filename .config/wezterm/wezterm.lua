@@ -86,7 +86,9 @@ config.keys = {
 	{ key = "p", mods = "LEADER", action = act.ActivateTabRelative(-1) },
 	{ key = "n", mods = "LEADER", action = act.ActivateTabRelative(1) },
 	-- kill tab
-	{ key = "x", mods = "LEADER", action = act.CloseCurrentTab({ confirm = true }) },
+	{ key = "w", mods = "LEADER", action = act.CloseCurrentTab({ confirm = true }) },
+	-- kill pane
+	{ key = "x", mods = "LEADER", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
 	-- search like tmux
 	{ key = "/", mods = "LEADER", action = act.Search({ CaseInSensitiveString = "" }) },
 	-- rename a tab
