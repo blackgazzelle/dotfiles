@@ -1,8 +1,16 @@
 local map = vim.keymap.set
 local builtin = require("telescope.builtin")
 
--- Oil
-map("n", "-", "<CMD>Oil<CR>", { desc = "Oil Open parent directory" })
+-- MiniFiles
+map("n", "-", function()
+	local MiniFiles = require("mini.files")
+	local minifiles_toggle = function(...)
+		if not MiniFiles.close() then
+			MiniFiles.open(...)
+		end
+	end
+	minifiles_toggle()
+end, { desc = "Minifiles Open" })
 
 -- General
 map("n", ";", ":", { desc = "General enter command mode", nowait = true })
@@ -17,7 +25,7 @@ map("n", "<leader>zz", function()
 		},
 	})
 end, { desc = "General Starts zen mode and twilight" })
-map("n", "<leader>ng", ":Neogit<CR>", { desc = "General Enter Neogit", noremap = true })
+--map("n", "<leader>ng", ":Neogit<CR>", { desc = "General Enter Neogit", noremap = true })
 map("n", "<leader>fm", function()
 	require("conform").format({ async = true, lsp_format = "fallback" })
 end, { desc = "General format", noremap = true })
@@ -116,7 +124,56 @@ end, { desc = "Splits Start Resize Mode" })
 vim.keymap.set("n", "]t", function()
 	require("todo-comments").jump_next()
 end, { desc = "Next todo comment" })
-
 vim.keymap.set("n", "[t", function()
 	require("todo-comments").jump_prev()
 end, { desc = "Previous todo comment" })
+
+-- Zen
+map("n", "<leader>z", function()
+	Snacks.zen()
+end, { desc = "Toggle Zen Mode" })
+map("n", "<leader>Z", function()
+	Snacks.zen.zoom()
+end, { desc = "Toggle Zoom" })
+
+-- Scratch buff
+map("n", "<leader>.", function()
+	Snacks.scratch()
+end, { desc = "Toggle Scratch Buffer" })
+map("n", "<leader>S", function()
+	Snacks.scratch.select()
+end, { desc = "Select Scratch Buffer" })
+
+-- Notifs
+map("n", "<leader>n", function()
+	Snacks.notifier.show_history()
+end, { desc = "Notification History" })
+map("n", "<leader>un", function()
+	Snacks.notifier.hide()
+end, { desc = "Dismiss All Notifications" })
+
+-- Buffers
+map("n", "<leader>bd", function()
+	Snacks.bufdelete()
+end, { desc = "Delete Buffer" })
+
+-- Reanme
+map("n", "<leader>cR", function()
+	Snacks.rename.rename_file()
+end, { desc = "Rename File" })
+
+-- Term
+map("n", "<c-/>", function()
+	Snacks.terminal()
+end, { desc = "Toggle Terminal" })
+map("n", "<c-_>", function()
+	Snacks.terminal()
+end, { desc = "which_key_ignore" })
+
+-- Jumps
+map({ "n", "t" }, "]]", function()
+	Snacks.words.jump(vim.v.count1)
+end, { desc = "Next Reference" })
+map({ "n", "t" }, "[[", function()
+	Snacks.words.jump(-vim.v.count1)
+end, { desc = "Prev Reference" })

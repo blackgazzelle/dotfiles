@@ -13,20 +13,17 @@ return {
 				function()
 					require("which-key").show({ global = false })
 				end,
-				desc = "Buffer Local Keymaps (which-key)",
+				desc = "buffer local keymaps (which-key)",
 			},
 		},
 	},
 	{
-		"stevearc/oil.nvim",
-		---@module 'oil'
-		---@type oil.SetupOpts
-		opts = {
-			keymaps = {
-				["<leader>h"] = { "actions.select", opts = { horizontal = true } },
-			},
-		},
-		dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+		"echasnovski/mini.files",
+		version = false,
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function(_, opts)
+			require("configs/minifiles")
+		end,
 	},
 	{
 		"mrjones2014/smart-splits.nvim",
@@ -107,55 +104,5 @@ return {
 				},
 			})
 		end,
-	},
-	{
-		"folke/snacks.nvim",
-		priority = 1000,
-		lazy = false,
-		---@type snacks.Config
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-			bigfile = { enabled = true },
-			indent = { enabled = true },
-			input = { enabled = true },
-			notifier = { enabled = true },
-			quickfile = { enabled = true },
-			scroll = { enabled = true },
-			statuscolumn = { enabled = true },
-			words = { enabled = true },
-			dashboard = {
-				preset = {
-					header = [[ 
-          ▗█▗▖                   
-         ▗▗▓▒▓▓▓▓▓               
-         ▗▗▄▓▒▓▒▒▄▄▄▓            
-          ▐█▓▓▒▒▒▒▒▒▄▄▓▖  ▗  ▗▚▖▗
-          ▓▒▄▓▓▓▓▒▒▒▀▀▐▄▙▄▙▄▄▄▖▖▖
-            ▄▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▝▀▚▄ 
-            ▄▓▓▓▓▓▒▓▒▒▒▄▓▖▓▓▖▄▞▀ 
-            ▀█▗▓▒▒▒▒▓▓▓▓▓▄███▖▘  
-            ▄▓▓▓▓▓▓▓▓▄███▛▀▀▀▘   
-          ▐█▓▓▓▓▓▄██████▓▄▒      
-         ▗▗▓▓▓▗█████▒▄██▒▄██     
-        █▓▓▓▄▒▗█████▒▄████▒▗█▖   
-        ▀▗██▒▗█████████████▗▒▄▌  
-         ▓▐█▒▒▒▒▒▒▒▒▒▄███▒▒▒▒▄▌  
-          ░ ▄▒▒▒▄███▒▒▒▒▒▒▒▗██░  
-          ▐█▒▒▒▒▒▒▒▒▄█▄▄▒▒▗▗▓▓▗█ 
-          ▐█▒▒▒▒▒▒▒▒▄▒▒▒▒▒▒▗▄▄▄█ 
-          ▐█▒▒▒▒▒▒▒▒▄▒▒▒▒▒▗▗▒▄▌  
-          ▐█▄▒▒▒▒▒▒▒▄▄▄▄▒▒▗▗▒▄▌  
-            ▄▒▒▒▒▒▗▄▒▒▒▒▒▄▒▒▒▟▌  
-            ▄▒▒▒▒▒▗█▒▒▒▒▄▒▒▒▒▄▌  
-          ▗▄▒▗▗▒▒▗▗▒▒▄▄▄▒▒▒▒▒▄▌  
-         ▗▗▒▒▒▗██▒▒▒▒▒▒▒▒▒▒▒▒▒▗▟ 
-         ▝▐████▀▀█████████████▛▀ 
-          ▝▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓▓▓▘  
-                    ]],
-				},
-			},
-		},
 	},
 }

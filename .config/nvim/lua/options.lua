@@ -2,8 +2,6 @@
 vim.opt.clipboard = "unnamedplus" -- use system clipboard
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.mouse = "a" -- allow the mouse to be used in Nvim
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
 
 -- Session restoring
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
@@ -43,3 +41,12 @@ vim.api.nvim_create_user_command("Format", function(args)
 	end
 	require("conform").format({ async = true, lsp_fallback = true, range = range })
 end, { range = true })
+
+-- Snacks functions
+-- snacks.rename
+vim.api.nvim_create_autocmd("User", {
+	pattern = "MiniFilesActionRename",
+	callback = function(event)
+		Snacks.rename.on_rename_file(event.data.from, event.data.to)
+	end,
+})
