@@ -50,12 +50,12 @@ return {
 
 	{
 		"rmagatti/auto-session",
-		lazy = false,
 		config = function()
 			require("auto-session").setup({
-				auto_session_use_git_branch = true,
-				auto_save_enabled = true,
-				auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/", "~/Desktop" },
+				use_git_branch = true,
+				suppressed_dirs = { "/", "~/Downloads" },
+				lazy_support = true,
+				auto_restore_last_session = true,
 			})
 		end,
 	},
