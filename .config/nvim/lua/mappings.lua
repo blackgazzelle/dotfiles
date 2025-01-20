@@ -156,6 +156,16 @@ end, { desc = "Dismiss All Notifications" })
 map("n", "<leader>bd", function()
 	Snacks.bufdelete()
 end, { desc = "Delete Buffer" })
+map("n", "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", { desc = "Toggle Pin" })
+map("n", "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", { desc = "Delete Non-Pinned Buffers" })
+map("n", "<leader>br", "<Cmd>BufferLineCloseRight<CR>", { desc = "Delete Buffers to the Right" })
+map("n", "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>", { desc = "Delete Buffers to the Left" })
+map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
+map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
+map("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
+map("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
+map("n", "[B", "<cmd>BufferLineMovePrev<cr>", { desc = "Move buffer prev" })
+map("n", "]B", "<cmd>BufferLineMoveNext<cr>", { desc = "Move buffer next" })
 
 -- Reanme
 map("n", "<leader>cR", function()
@@ -177,3 +187,34 @@ end, { desc = "Next Reference" })
 map({ "n", "t" }, "[[", function()
 	Snacks.words.jump(-vim.v.count1)
 end, { desc = "Prev Reference" })
+
+-- Noice
+map("n", "<leader>sn", "", { desc = "+noice" })
+map("c", "<S-Enter>", function()
+	require("noice").redirect(vim.fn.getcmdline())
+end, { desc = "Redirect Cmdline" })
+map("n", "<leader>snl", function()
+	require("noice").cmd("last")
+end, { desc = "Noice Last Message" })
+map("n", "<leader>snh", function()
+	require("noice").cmd("history")
+end, { desc = "Noice History" })
+map("n", "<leader>sna", function()
+	require("noice").cmd("all")
+end, { desc = "Noice All" })
+map("n", "<leader>snd", function()
+	require("noice").cmd("dismiss")
+end, { desc = "Dismiss All" })
+map("n", "<leader>snt", function()
+	require("noice").cmd("pick")
+end, { desc = "Noice Picker (Telescope/FzfLua)" })
+map({ "n", "i", "s" }, "<c-f>", function()
+	if not require("noice.lsp").scroll(4) then
+		return "<c-f>"
+	end
+end, { silent = true, expr = true, desc = "Scroll Forward" })
+map({ "n", "i", "s" }, "<c-b>", function()
+	if not require("noice.lsp").scroll(-4) then
+		return "<c-b>"
+	end
+end, { silent = true, expr = true, desc = "Scroll Backward" })
