@@ -1,33 +1,41 @@
--- Setup configuration with dap-ui
-local dap, dapui = require "dap", require "dapui"
+local dap_ok, dap = pcall(require, "dap")
+if not dap_ok then
+	print("nvim-dap not installed!")
+	return
+end
+
+local dapui = require("dapui")
 dap.listeners.before.attach.dapui_config = function()
-  dapui.open()
+	dapui.open()
 end
 dap.listeners.before.launch.dapui_config = function()
-  dapui.open()
+	dapui.open()
 end
 dap.listeners.before.event_terminated.dapui_config = function()
-  dapui.close()
+	dapui.close()
 end
 dap.listeners.before.event_exited.dapui_config = function()
-  dapui.close()
+	dapui.close()
 end
--- Setup dap for python
-require("dap-python").setup "python"
--- gdb setup for C/C++/Rust -- Need gdb 14+ :(
---dap.adapters.gdb = {
---  type = "executable",
---  command = "gdb",
---  args = { "-i", "dap" }
---}
---dap.configurations.c = {
---  {
---    name = "Launch",
---    type = "gdb",
---    request = "launch",
---    program = function()
---      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
---    end,
---    cwd = "${workspaceFolder}",
---  },
---}
+dapui.setup({})
+
+--require('dap').set_log_level('INFO') -- Helps when configuring DAP, see logs with :DapShowLog
+
+dap.configurations = {
+	go = {
+		{
+			type = "go", -- Which adapter to use
+			name = "Debug", -- Human readable name
+			request = "launch", -- Whether to "launch" or "attach" to program
+			program = "${file}", -- The buffer you are focused on when running nvim-dap
+		},
+	},
+	python = {
+		{
+			type = "python", -- Which adapter to use
+			name = "Debug", -- Human readable name
+			request = "launch", -- Whether to "launch" or "attach" to program
+			program = "${file}", -- The buffer you are focused on when running nvim-dap
+		},
+	},
+}

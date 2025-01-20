@@ -9,6 +9,7 @@ mason.setup({
 			package_uninstalled = "✗",
 		},
 	},
+	max_concurrent_installers = 10,
 })
 
 mason_lspconfig.setup({
@@ -47,3 +48,5 @@ mason_tool_installer.setup({
 		"codelldb",
 	},
 })
+
+require("configs/mason_dap")

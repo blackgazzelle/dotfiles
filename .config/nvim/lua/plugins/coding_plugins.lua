@@ -97,7 +97,8 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 		ft = { "python", "c", "c++", "rust" },
-		dependencies = { "rcarriga/nvim-dap-ui", "mfussenegger/nvim-dap-python", "nvim-neotest/nvim-nio" },
+		dependencies = { "rcarriga/nvim-dap-ui" },
+		-- TODO: maybe add back in: "mfussenegger/nvim-dap-python", "nvim-neotest/nvim-nio"
 		config = function()
 			require("configs.dap")
 		end,
@@ -105,7 +106,15 @@ return {
 
 	{
 		"rcarriga/nvim-dap-ui",
-		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+		dependencies = { "mfussenegger/nvim-dap" },
+		-- TODO: maybe add back in: "nvim-neotest/nvim-nio"
+	},
+
+	{
+		"jay-babu/mason-nvim-dap.nvim",
+		dependencies = {
+			"williamboman/mason.nvim",
+		},
 	},
 
 	{

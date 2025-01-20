@@ -18,14 +18,8 @@ map("n", "<leader>rcu", function()
 	require("crates").upgrade_all_crates()
 end, { desc = "General rust update crates" })
 map("n", "<leader>p", "<cmd>PasteImage<cr>", { desc = "General paste clipboard image" })
-map("n", "<leader>zz", function()
-	require("zen-mode").toggle({
-		window = {
-			width = 0.9, -- width will be 85% of the editor width
-		},
-	})
-end, { desc = "General Starts zen mode and twilight" })
---map("n", "<leader>ng", ":Neogit<CR>", { desc = "General Enter Neogit", noremap = true })
+map("n", "<leader>ng", ":Neogit<CR>", { desc = "General Enter Neogit", noremap = true })
+
 map("n", "<leader>fm", function()
 	require("conform").format({ async = true, lsp_format = "fallback" })
 end, { desc = "General format", noremap = true })
@@ -44,23 +38,39 @@ map("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 map("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 
 -- Dap
+local dap = require("dap")
+local dapui = require("dapui")
 map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "DAP Toggle breakpoint" })
 map("n", "<leader>dc", "<cmd> DapContinue <CR>", { desc = "DAP Continue from breakpoint" })
+map("n", "<leader>ds", function()
+	dap.continue()
+	dapui.toggle({})
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>=", false, true, true), "n", false) -- Spaces buffers evenly
+end, { desc = "DAP Start session" })
+map("n", "<leader>de", function()
+	-- Close debugger and clear breakpoints
+	dap.clear_breakpoints()
+	dapui.toggle({})
+	dap.terminate()
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>=", false, true, true), "n", false)
+	require("notify")("Debugger session ended", "warn")
+end)
 map("n", "<leader>dl", function()
-	require("dap").run_last()
+	dap.run_last()
 end, { desc = "DAP run last" })
 map("n", "<leader>dp", function()
-	require("dap").repl.open()
+	dap.repl.open()
 end, { desc = "DAP open repl" })
-map("n", "<leader>dso", function()
-	require("dap").step_over()
+map("n", "<leader>do", function()
+	dap.step_over()
 end, { desc = "DAP Step over" })
-map("n", "<leader>dsi", function()
-	require("dap").step_into()
+map("n", "<leader>di", function()
+	dap.step_into()
 end, { desc = "DAP Step into" })
-map("n", "<leader>dsu", function()
-	require("dap").step_out()
+map("n", "<leader>du", function()
+	dap.step_out()
 end, { desc = "DAP Step out(up)" })
+
 -- LSP
 map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP [C]ode [A]ction" })
 map("n", "<leader>tl", function()
@@ -86,38 +96,39 @@ map({ "n" }, "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Trouble 
 map({ "n" }, "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Trouble Quickfix List (Trouble)" })
 
 -- Switch pane
+local smartsplits = require("smart-splits")
 map("n", "<C-h>", function()
 	local args = { same_row = boolean, at_edge = "wrap" }
-	require("smart-splits").move_cursor_left(args)
+	smartsplits.move_cursor_left(args)
 end, { desc = "Splits Move Pane Left" })
 map("n", "<C-l>", function()
 	local args = { same_row = boolean, at_edge = "wrap" }
-	require("smart-splits").move_cursor_right(args)
+	smartsplits.move_cursor_right(args)
 end, { desc = "Splits Move Pane Right" })
 map("n", "<C-k>", function()
 	local args = { same_row = boolean, at_edge = "wrap" }
-	require("smart-splits").move_cursor_up(args)
+	smartsplits.move_cursor_up(args)
 end, { desc = "Splits Move Pane Up" })
 map("n", "<C-j>", function()
 	local args = { same_row = boolean, at_edge = "wrap" }
-	require("smart-splits").move_cursor_down(args)
+	smartsplits.move_cursor_down(args)
 end, { desc = "Splits Move Pane Down" })
 
 -- Resize pane
 map("n", "<M-h>", function()
-	require("smart-splits").resize_left(5)
+	smartsplits.resize_left(5)
 end, { desc = "Splits Resize Pane Left" })
 map("n", "<M-l>", function()
-	require("smart-splits").resize_right(5)
+	smartsplits.resize_right(5)
 end, { desc = "Splits Resize Pane Right" })
 map("n", "<M-k>", function()
-	require("smart-splits").resize_up(5)
+	smartsplits.resize_up(5)
 end, { desc = "Splits Resize Pane Up" })
 map("n", "<M-j>", function()
-	require("smart-splits").resize_down(5)
+	smartsplits.resize_down(5)
 end, { desc = "Splits Resize Pane Down" })
 map("n", "<leader>rs", function()
-	require("smart-splits").start_resize_mode()
+	smartsplits.start_resize_mode()
 end, { desc = "Splits Start Resize Mode" })
 
 -- Todo keys
