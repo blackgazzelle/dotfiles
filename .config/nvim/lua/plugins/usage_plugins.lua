@@ -53,9 +53,8 @@ return {
 		config = function()
 			require("auto-session").setup({
 				use_git_branch = true,
-				suppressed_dirs = { "/", "~/Downloads" },
+				suppressed_dirs = { "/", "~/Downloads", "~/.config" },
 				lazy_support = true,
-				auto_restore_last_session = true,
 			})
 		end,
 	},

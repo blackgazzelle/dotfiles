@@ -36,6 +36,7 @@ return {
 			notifier = { enabled = true },
 			quickfile = { enabled = true },
 			scroll = { enabled = true },
+			scope = { enabled = true },
 			statuscolumn = { enabled = true },
 			words = { enabled = true },
 			dashboard = {

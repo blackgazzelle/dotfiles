@@ -13,6 +13,8 @@ return {
 				"lua",
 				"python",
 				"bash",
+				"norg",
+				"regex",
 
 				-- web
 				"html",
