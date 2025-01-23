@@ -170,7 +170,10 @@ config.window_frame = {
 	-- Whatever font is selected here, it will have the
 	-- main font setting appended to it to pick up any
 	-- fallback fonts you may have used there.
-	font = wezterm.font({ family = "JetBrainsMono NF" }),
+	font = wezterm.font_with_fallback({
+		"JetBrainsMono NF",
+		"Hack NF",
+	}),
 
 	-- The size of the font in the tab bar.
 	font_size = 12.0,
