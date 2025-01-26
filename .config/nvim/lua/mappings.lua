@@ -71,12 +71,6 @@ map("n", "<leader>du", function()
 	dap.step_out()
 end, { desc = "DAP Step out(up)" })
 
--- LSP
-map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP [C]ode [A]ction" })
-map("n", "<leader>tl", function()
-	lint.try_lint()
-end, { desc = "LSP Trigger linting" })
-
 -- Trouble
 map({ "n" }, "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble Diagnostics (Trouble)" })
 map(
@@ -229,3 +223,19 @@ map({ "n", "i", "s" }, "<c-b>", function()
 		return "<c-b>"
 	end
 end, { silent = true, expr = true, desc = "Scroll Backward" })
+
+-- LSP
+map("n", "gD", vim.lsp.buf.declaration, { desc = "LSP go to declaration" })
+map("n", "gd", vim.lsp.buf.definition, { desc = "LSP go to definition" })
+map("n", "K", vim.lsp.buf.hover, { desc = "LSP hover" })
+map("n", "gi", vim.lsp.buf.implementation, { desc = "LSP go to implementation" })
+map("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "LSP signature help" })
+map("n", "<space>wa", vim.lsp.buf.add_workspace_folder, { desc = "LSP add workspace folder" })
+map("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, { desc = "LSP remove workspace folder" })
+map("n", "<space>wl", function()
+	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+end, { desc = "LSP list workspace folder" })
+map("n", "<space>D", vim.lsp.buf.type_definition, { desc = "LSP type definition" })
+map("n", "<space>rn", vim.lsp.buf.rename, { desc = "LSP rename" })
+map({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
+map("n", "gr", vim.lsp.buf.references, { desc = "LSP show references" })
