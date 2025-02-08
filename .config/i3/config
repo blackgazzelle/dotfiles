@@ -275,8 +275,8 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 exec brave-browser-stable
 exec --no-startup-id i3-msg $ws1; exec wezterm
 exec_always --no-startup-id clipcatd
-exec_always xset s 600
-exec_always xset dpms 0 900 1200
+exec_always xset s 900 
+exec_always xset dpms 0 0 1200
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id autorandr -c && feh --bg-scale --no-fehbg "$HOME/Pictures/backgrounds/bebop.jpg"
 exec_always $HOME/.config/scripts/launch.sh
