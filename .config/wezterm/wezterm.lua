@@ -20,6 +20,14 @@ config.font_size = 10
 -- set leader for terminal
 config.leader = { key = " ", mods = "CTRL", timeout_milliseconds = 1000 }
 
+-- setup unix domain
+config.unix_domains = {
+	{
+		name = "unix",
+	},
+}
+config.default_gui_startup_args = { "connect", "unix" }
+
 local function is_vim(pane)
 	-- this is set by the plugin, and unset on ExitPre in Neovim
 	return pane:get_user_vars().IS_NVIM == "true"
@@ -107,6 +115,21 @@ config.keys = {
 			end),
 		}),
 	},
+
+	-- rename a session
+	{
+		key = "$",
+		mods = "LEADER|SHIFT",
+		action = act.PromptInputLine({
+			description = "Enter new name for session",
+			action = wezterm.action_callback(function(window, pane, line)
+				if line then
+					mux.rename_workspace(window:mux_window():get_workspace(), line)
+				end
+			end),
+		}),
+	},
+
 	--
 	split_nav("move", "h"),
 	split_nav("move", "j"),
@@ -120,6 +143,17 @@ config.keys = {
 
 	-- vim copy mode
 	{ key = "Enter", mods = "LEADER", action = act.ActivateCopyMode },
+
+	-- attach to muxer
+	{ key = "a", mods = "LEADER", action = act.AttachDomain("unix") },
+
+	-- Detach from muxer
+	{ key = "d", mods = "LEADER", action = act.DetachDomain({ DomainName = "unix" }) },
+	-- Show list of workspaces
+	{ key = "s", mods = "LEADER", action = act.ShowLauncherArgs({ flags = "WORKSPACES" }) },
+
+	-- Launcher
+	{ key = "l", mods = "LEADER", action = act.ShowLauncher },
 }
 
 -- add in keys to switch tab with tab number
