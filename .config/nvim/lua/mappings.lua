@@ -239,3 +239,6 @@ map("n", "<space>D", vim.lsp.buf.type_definition, { desc = "LSP type definition"
 map("n", "<space>rn", vim.lsp.buf.rename, { desc = "LSP rename" })
 map({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
 map("n", "gr", vim.lsp.buf.references, { desc = "LSP show references" })
+
+-- Clear highlight
+map("n", "<space>l", ":noh<CR>", { desc = "Clear highlighting" })
