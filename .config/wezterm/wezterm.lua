@@ -7,6 +7,9 @@ local act = wezterm.action
 
 local smart_splits = wezterm.plugin.require("https://github.com/mrjones2014/smart-splits.nvim")
 
+-- enable wayland, uncomment if x11
+config.enable_wayland = true
+
 -- set colorscheme
 config.color_scheme = "Nord (base16)"
 
@@ -14,7 +17,7 @@ config.color_scheme = "Nord (base16)"
 config.audible_bell = "Disabled"
 
 -- set font
-config.font = wezterm.font("JetBrains Mono NF")
+config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 10
 
 -- set leader for terminal
@@ -26,7 +29,7 @@ config.unix_domains = {
 		name = "unix",
 	},
 }
-config.default_gui_startup_args = { "connect", "unix" }
+--config.default_gui_startup_args = { "connect", "unix" }
 
 local function is_vim(pane)
 	-- this is set by the plugin, and unset on ExitPre in Neovim
@@ -188,7 +191,6 @@ config.mouse_bindings = {
 	},
 }
 
-config.window_decorations = "RESIZE"
 config.use_dead_keys = false
 config.scrollback_lines = 5000
 config.adjust_window_size_when_changing_font_size = false

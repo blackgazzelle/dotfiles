@@ -1,0 +1,100 @@
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 14px;
+}
+
+window#waybar {
+  background-color: #2e3440;
+  background: transparent;
+}
+
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -1px transparent;
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  background: inherit;
+  box-shadow: inset 0 -1px #434c5e;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  background-color: transparent;
+  color: #eceff4;
+}
+
+#workspaces button:hover {
+  background: #434c5e;
+}
+
+#workspaces button.focused {
+  color: #a3be8c;
+}
+
+#workspaces button.urgent {
+  background-color: #bf616a;
+}
+
+#mode {
+  background-color: #64727d;
+  border-bottom: 3px solid #eceff4;
+}
+
+#custom-media {
+  color: #a3be8c;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#idle_inhibitor,
+#tray,
+#keyboard-state,
+#scratchpad,
+#bluetooth,
+#privacy {
+  padding: 0 8px;
+  color: #eceff4;
+}
+
+#window,
+#workspaces {
+  margin: 0 4px;
+}
+
+#window {
+  color: #a3be8c;
+}
+
+@keyframes blink {
+  to {
+    background-color: #eceff4;
+    color: #000000;
+  }
+}
+.modules-left {
+  background-color: #434c5e;
+  border-radius: 25px;
+}
+
+.modules-right {
+  background-color: #434c5e;
+  border-radius: 25px;
+}
+
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=ranger
+Comment=Launches the ranger file manager
+Icon=utilities-terminal
+Terminal=false
+Exec=wezterm -e --always-new-process --no-auto-connect ranger %F
+Categories=ConsoleOnly;System;FileTools;FileManager
+Terminal=false
+X-MultipleArgs=false
+MimeType=inode/directory;
+Keywords=File;Manager;Browser;Explorer;Launcher;Vi;Vim;Python

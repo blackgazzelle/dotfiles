@@ -5,7 +5,7 @@
 server_endpoint = "/run/user/1000/clipcat/grpc.sock"
 
 # The default finder to invoke when no "--finder=<finder>" option provided.
-finder = "rofi"
+finder = "wofi"
 
 [log]
 # Emit log message to a log file.
@@ -21,12 +21,6 @@ emit_stderr = false
 level = "INFO"
 
 # Options for "rofi".
-[rofi]
-# Length of line.
-line_length = 100
-# Length of menu.
-menu_length = 30
-# Prompt of menu.
-menu_prompt = "Clipcat"
-# Extra arguments to pass to `rofi`.
-extra_arguments = ["-mesg", "Please select a clip"]
+[custom_finder]
+program = "fzf"
+args = []

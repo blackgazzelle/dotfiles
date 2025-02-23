@@ -1,0 +1,19 @@
+[Default Applications]
+application/zip=ranger.desktop
+x-scheme-handler/rdp=org.remmina.Remmina.desktop
+x-scheme-handler/spice=org.remmina.Remmina.desktop
+x-scheme-handler/vnc=org.remmina.Remmina.desktop
+x-scheme-handler/remmina=org.remmina.Remmina.desktop
+application/x-remmina=org.remmina.Remmina.desktop
+application/x-extension-burp=install4j_1xbwgq1-BurpSuiteCommunity.desktop
+inode/directory=ranger.desktop
+
+[Added Associations]
+application/zip=ranger.desktop;
+application/pdf=okularApplication_pdf.desktop;
+x-scheme-handler/rdp=org.remmina.Remmina.desktop;
+x-scheme-handler/spice=org.remmina.Remmina.desktop;
+x-scheme-handler/vnc=org.remmina.Remmina.desktop;
+x-scheme-handler/remmina=org.remmina.Remmina.desktop;
+application/x-remmina=org.remmina.Remmina.desktop;
+application/x-virt-viewer=remote-viewer.desktop;org.remmina.Remmina-file.desktop;

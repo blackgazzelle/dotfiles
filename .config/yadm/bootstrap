@@ -58,7 +58,12 @@ function install_common {
         fonts-noto-extra fonts-not-color-emoji fonts-symbola -y
 
     # Terminal
-    sudo apt install alacritty zsh fzf -y
+    sudo apt install zsh fzf -y
+    curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
+    echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+    sudo apt update 
+    sudo apt install wezterm-nightly
+
     chsh -s $(which zsh)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -100,10 +105,8 @@ function post_reboot_install {
     # Flatpak packages
     printf "${Cyan}Flatpak:\n${Clear}"
     echo "flatpak install flathub com.spotify.Client"
-    echo "flatpak install flathub com.discordapp.Discord"
     echo "flatpak install flathub com.slack.Slack"
-    echo "flatpak install flathub me.hyliu.fluentreader"
-    echo "flatpak install flathub org.onlyoffice.desktopeditors"
+    printf "flatpak [--user] override --socket=wayland [your-app]"
 
     # Spicetify
     printf "${Cyan}Spicetify:${Clear}https://spicetify.app/docs/getting-started\n"
@@ -125,6 +128,17 @@ function post_reboot_install {
 
     # Grub2-themes
     printf "${Cyan}grub2-themes:${Clear}: https://github.com/vinceliuice/grub2-themes/releases\n"
+}
+
+function wayland_install {
+    sudo apt install sway swaybg swayidle swaylock waybar brightnessctl gammastep aptitude \
+        playerctl wofi grim slurp nwg-dispaly pipewire-pulse wev wireplumber wlr-randr xdg-desktop-portal-wlr \
+        network-manager-gnome mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev pipewire python3-cbus p7zip-full \
+        p7zip-full xinit ukui-polkit polkitd pinentry-gnome3 gnome-keyring policykit-1-gnome blueman thefuck \
+        ddcutil ddcui libplayerctl2 libplayerctl-dev -y
+
+
+
 }
 
 
