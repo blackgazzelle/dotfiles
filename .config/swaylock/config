@@ -1,0 +1,4 @@
+image=$HOME/Pictures/backgrounds/bebop.jpg
+ignore-empty-password=true
+show-failed-attempts=true
+indicator-caps-lock=true
