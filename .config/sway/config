@@ -264,5 +264,5 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 exec brave-browser-stable
 exec --no-startup-id swaymsg $ws1 exec wezterm
 exec_always --no-startup-id clipcatd
-exec_always pkill kanshi && kanshi
+exec_always kanshi
 exec_always swaybg -i "$HOME/Pictures/backgrounds/bebop.jpg"

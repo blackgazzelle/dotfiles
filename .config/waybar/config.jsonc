@@ -1,5 +1,5 @@
 { 
-    "spacing": 2,
+    "spacing": 1,
     "margin-left": 6,
     "margin-right": 6,
     "layer": "top",
@@ -12,7 +12,8 @@
         "cpu",
         "memory",
         "temperature",
-        "idle_inhibitor",
+        "backlight",
+        "battery",
         "privacy"
 
     ],
@@ -22,11 +23,9 @@
     ],
     "modules-right": [
         "systemd-failed-units",
-        "backlight",
+        "idle_inhibitor",
         "pulseaudio",
         "network",
-        "backlight",
-        "battery",
         "clock",
         "bluetooth",
         "tray"
@@ -134,7 +133,7 @@
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% 󰢝",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
@@ -154,7 +153,7 @@
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
         "format-bluetooth-muted": " {icon}",
-        "format-muted": " {format_source}",
+        "format-muted": " ",
         "format-source": "{volume}% ",
         "format-source-muted": " ",
         "format-icons": {

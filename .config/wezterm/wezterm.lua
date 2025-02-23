@@ -7,7 +7,7 @@ local act = wezterm.action
 
 local smart_splits = wezterm.plugin.require("https://github.com/mrjones2014/smart-splits.nvim")
 
--- enable wayland, uncomment if x11
+-- enable wayland, comment if x11
 config.enable_wayland = true
 
 -- set colorscheme
@@ -22,14 +22,6 @@ config.font_size = 10
 
 -- set leader for terminal
 config.leader = { key = " ", mods = "CTRL", timeout_milliseconds = 1000 }
-
--- setup unix domain
-config.unix_domains = {
-	{
-		name = "unix",
-	},
-}
---config.default_gui_startup_args = { "connect", "unix" }
 
 local function is_vim(pane)
 	-- this is set by the plugin, and unset on ExitPre in Neovim
@@ -156,7 +148,10 @@ config.keys = {
 	{ key = "s", mods = "LEADER", action = act.ShowLauncherArgs({ flags = "WORKSPACES" }) },
 
 	-- Launcher
-	{ key = "l", mods = "LEADER", action = act.ShowLauncher },
+	{ key = "L", mods = "LEADER", action = act.ShowLauncher },
+
+	-- Clear scroll back
+	{ key = "l", mods = "LEADER", action = act.ClearScrollback("ScrollbackAndViewport") },
 }
 
 -- add in keys to switch tab with tab number
