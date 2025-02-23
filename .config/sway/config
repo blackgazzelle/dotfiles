@@ -33,7 +33,7 @@ set $ws10 "10"
 include ~/.config/sway/workspaces
 
 # Workspace loads
-assign [app_id="Brave-browser"] $ws2
+assign [app_id="brave-browser"] $ws2
 assign [app_id="firefox"] $ws2
 assign [app_id="spotify"] $ws3
 assign [app_id="discord"] $ws4
@@ -250,9 +250,7 @@ bindsym $mod+r mode "resize"
 #############################################
 # autostart applications/services on login: #
 #############################################
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+exec --no-startup-id $HOME/.config/scripts/tray_start.sh
 exec swayidle -w \
          timeout 600 'swaylock -f' \
          timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
@@ -263,11 +261,8 @@ exec swayidle -w \
 # Autoload
 exec --no-startup-id dunst -config $HOME/.config/dunst/dunstrc
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-exec pasystray
 exec brave-browser-stable
 exec --no-startup-id swaymsg $ws1 exec wezterm
-exec --no-startup-id polychromatic-tray-applet
-exec --no-startup-id polychromatic-cli -o static -c FF0000
 exec_always --no-startup-id clipcatd
-exec_always pkill kanshi; exec kanshi
+exec_always pkill kanshi && kanshi
 exec_always swaybg -i "$HOME/Pictures/backgrounds/bebop.jpg"
