@@ -1,5 +1,9 @@
 profile pc {
-    output DP-1 enable transform normal mode 2560x1440@239.761Hz adaptive_sync off position 1920,0 scale 
+    output DP-1 enable transform normal mode 2560x1440@239.761Hz adaptive_sync off position 1920,0
     output DP-2 enable transform normal mode 1920x1080@60Hz adaptive_sync off position 4480,0
     output HDMI-A-2 enable transform normal mode 1920x1080@60Hz adaptive_sync off position 0,0
+}
+
+profile laptop {
+    output eDP-1 enable transform normal mode 2256x1504@59.999Hz adaptive_sync off position 0,0 scale 1.5
 }

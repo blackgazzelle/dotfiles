@@ -132,20 +132,17 @@ function post_reboot_install {
 
 function wayland_install {
     sudo apt install sway swaybg swayidle swaylock waybar brightnessctl gammastep aptitude \
-        playerctl wofi grim slurp nwg-dispaly pipewire-pulse wev wireplumber wlr-randr xdg-desktop-portal-wlr \
-        network-manager-gnome mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev pipewire python3-cbus p7zip-full \
+        playerctl wofi grim slurp nwg-displays pipewire-pulse wev wireplumber wlr-randr xdg-desktop-portal-wlr \
+        network-manager-gnome mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev pipewire python3-dbus p7zip-full \
         p7zip-full xinit ukui-polkit polkitd pinentry-gnome3 gnome-keyring policykit-1-gnome blueman thefuck \
-        ddcutil ddcui libplayerctl2 libplayerctl-dev -y
-
-
-
+        ddcutil ddcui libplayerctl2 libplayerctl-dev greetd tuigreet -y
 }
 
 
 set -- $(locale LC_MESSAGES)
 yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
 ## declare an array variable
-declare -a arr=("Setup Directories" "Install Openrazer" "Install i3 Packages" "Install Common Packages" "Install CTF Tools" "Post Install Print")
+declare -a arr=("Setup Directories" "Install Openrazer" "Install i3 Packages" "Install sway packages" "Install Common Packages" "Install CTF Tools" "Post Install Print")
 for command in "${arr[@]}";
 do
     read -p "$command (${yesword} / ${noword})? " yn
@@ -156,6 +153,8 @@ do
             install_openrazer
         elif [[ $command =~ "i3" ]]; then
             install_i3_packages
+        elif [[ $command =~ "sway" ]]; then
+            wayland_install
         elif [[ $command =~ "Common" ]]; then
             install_common
         elif [[ $command =~ "CTF" ]]; then
