@@ -6,7 +6,7 @@
 
 window#waybar {
   background-color: #2e3440;
-  background: transparent;
+  border-radius: 25px;
 }
 
 button {
@@ -84,15 +84,6 @@ button:hover {
     background-color: #eceff4;
     color: #000000;
   }
-}
-.modules-left {
-  background-color: #434c5e;
-  border-radius: 25px;
-}
-
-.modules-right {
-  background-color: #434c5e;
-  border-radius: 25px;
 }
 
 .modules-left > widget:first-child > #workspaces {
