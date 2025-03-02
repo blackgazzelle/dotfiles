@@ -37,7 +37,7 @@ assign [app_id="brave-browser"] $ws2
 assign [app_id="firefox"] $ws2
 assign [app_id="spotify"] $ws3
 assign [app_id="discord"] $ws4
-assign [app_id="Slack"] $ws4
+assign [class="Slack"] $ws4
 assign [app_id="Signal"] $ws4
 assign [app_id="thunderbird-default"] $ws5
 assign [class="steam"] $ws10
@@ -205,8 +205,6 @@ bindsym $mod+Shift+w reload
 bindsym $mod+Shift+r restart
 
 # MISC Key bindings
-set $launcher-clipboard-insert clipcat-menu insert 
-set $launcher-clipboard-remove clipcat-menu remove
 bindsym $mod+b exec brave-browser-stable
 bindsym $mod+y move workspace to output left
 bindsym $mod+Shift+s exec flatpak run com.spotify.Client
@@ -214,8 +212,7 @@ bindsym $mod+Shift+x exec waylock
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+p exec grim
-bindsym $mod+p exec $launcher-clipboard-insert
-bindsym $mod+o exec $launcher-clipboard-remove
+bindsym $mod+p exec cliphist list | wofi -S dmenu | cliphist decode | wl-copy
 
 # Script to change display setup
 bindsym $mod+Shift+space exec $HOME/.config/scripts/display-switch.sh
@@ -263,6 +260,7 @@ exec --no-startup-id dunst -config $HOME/.config/dunst/dunstrc
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 exec brave-browser-stable
 exec --no-startup-id swaymsg $ws1 exec wezterm
+exec wl-paste --watch cliphist store
 exec_always --no-startup-id clipcatd
 exec_always kanshi
 exec_always swaybg -i "$HOME/Pictures/backgrounds/bebop.jpg"
