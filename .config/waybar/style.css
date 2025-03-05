@@ -65,6 +65,7 @@ button:hover {
 #keyboard-state,
 #scratchpad,
 #bluetooth,
+#apt,
 #privacy {
   padding: 0 8px;
   color: #eceff4;

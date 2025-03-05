@@ -214,7 +214,7 @@
     enable_recursive_icon_lookup = true
 
     # Set icon theme (only used for recursive icon lookup)
-    icon_theme = "Nordic-bluish, Adwaita"
+    icon_theme = "Nordic-darker, Nordic-bluish, Adwaita"
     # You can also set multiple icon themes, with the leftmost one being used first.
     # icon_theme = "Adwaita, breeze"
 

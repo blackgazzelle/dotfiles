@@ -17,10 +17,10 @@ input * xkb_numlock enabled
 ##################################
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
+set $ws1 "1: "
+set $ws2 "2:󰖟 "
+set $ws3 "3: "
+set $ws4 "4: "
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -30,7 +30,10 @@ set $ws10 "10"
 
 
 # Set default locations for workspaces
-include ~/.config/sway/workspaces
+workspace $ws1 output "DP-1"
+workspace $ws2 output "HDMI-A-2"
+workspace $ws3 output "DP-2"
+workspace $ws4 output "DP-2"
 
 # Workspace loads
 assign [app_id="brave-browser"] $ws2
@@ -247,7 +250,10 @@ bindsym $mod+r mode "resize"
 #############################################
 # autostart applications/services on login: #
 #############################################
-exec --no-startup-id $HOME/.config/scripts/tray_start.sh
+exec "systemctl --user import-environment WAYLAND_DISPLAY SWAYSOCK; systemctl --user start sway-session.target"
+exec swaymsg -t subscribe '["shutdown"]' && systemctl --user stop sway-session.target
+exec systemctl --user import-environment WAYLAND_DISPLAY
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
 exec swayidle -w \
          timeout 600 'swaylock -f' \
          timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
@@ -256,11 +262,11 @@ exec swayidle -w \
 
 # Background temp
 # Autoload
+exec $HOME/.config/scripts/tray_start.sh
 exec --no-startup-id dunst -config $HOME/.config/dunst/dunstrc
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 exec brave-browser-stable
-exec --no-startup-id swaymsg $ws1 exec wezterm
+exec swaymsg 'workspace $ws1; exec "wezterm"'
 exec wl-paste --watch cliphist store
-exec_always --no-startup-id clipcatd
 exec_always kanshi
 exec_always swaybg -i "$HOME/Pictures/backgrounds/bebop.jpg"

@@ -22,6 +22,7 @@
         "sway/window"
     ],
     "modules-right": [
+        "custom/apt",
         "systemd-failed-units",
         "idle_inhibitor",
         "pulseaudio",
@@ -33,22 +34,8 @@
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
-        "all-outputs": true,
-        "warp-on-scroll": false,
-        "format": "{name}: {icon}",
-        "format-icons": {
-            "1": " ",
-            "2": "󰖟 ",
-            "3": " ",
-            "4": " ",
-            "5": "",
-            "6": "",
-            "7": "",
-            "8": "",
-            "9": "",
-            "10": "",
-            "urgent": " "
-        }
+        "all-outputs": false,
+        "warp-on-scroll": false
     },
     "keyboard-state": {
         "numlock": true,
@@ -177,6 +164,9 @@
         },
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+    },
+    "custom/apt": {
+        "exec": "$HOME/.config/scripts/apt_upgrades -N" // Script in resources folder
     },
     "privacy": {
         "icon-spacing": 4,
