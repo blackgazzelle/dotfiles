@@ -214,7 +214,7 @@ bindsym $mod+Shift+s exec flatpak run com.spotify.Client
 bindsym $mod+Shift+x exec waylock
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
-bindsym $mod+Shift+p exec grim
+bindsym $mod+Shift+p exec "grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')"
 bindsym $mod+p exec cliphist list | wofi -S dmenu | cliphist decode | wl-copy
 
 # Script to change display setup
@@ -257,7 +257,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSO
 exec swayidle -w \
          timeout 600 'swaylock -f' \
          timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         timeout 1800 'swaymsg "systemctl suspend"' \
+         timeout 1800 'systemctl suspend' \
          before-sleep 'swaylock -f'
 
 # Background temp

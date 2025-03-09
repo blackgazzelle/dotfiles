@@ -20,3 +20,5 @@ alias gdb="gdb-gef"
 alias convertmd="$SCRIPTS/convertmd"
 alias r="ranger"
 alias accessions="cd $HOME/Projects/Accessions/"
+alias screenshot="grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')"
+alias sscreenshot='grim -g "$(slurp)"'
