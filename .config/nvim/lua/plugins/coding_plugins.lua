@@ -15,6 +15,12 @@ return {
 				"bash",
 				"norg",
 				"regex",
+				"latex",
+				"scss",
+				"svelte",
+				"tsx",
+				"typst",
+				"vue",
 
 				-- web
 				"html",
