@@ -47,18 +47,12 @@ while getopts s:oc:n:Nh opt; do
       xargs echo)
 
     if [[ $upgraded != 0 ]] || [[ $new != 0 ]] || [[ $removed != 0 ]] || [[ $held != 0 ]]; then
-      color="$PENDING_COLOR"
       if [[ $SYMBOL_ONLY == 1 ]]; then
         echo -e "$PENDING_SYMBOL"
         echo -e "$PENDING_SYMBOL"
       else
-        echo -e "U:$upgraded/N:$new/R:$removed/H:$held $PENDING_SYMBOL"
-        echo -e "U:$upgraded/N:$new/R:$removed/H:$held $PENDING_SYMBOL"
+        echo "U:$upgraded/N:$new/R:$removed/H:$held $PENDING_SYMBOL"
       fi
-      echo $color
     elif [[ $ALWAYS_PRINT == 1 ]]; then
-      color="$NONPENDING_COLOR"
-      echo -e "U:$upgraded/N:$new/R:$removed/H:$held $PENDING_SYMBOL"
-      echo -e "U:$upgraded/N:$new/R:$removed/H:$held $PENDING_SYMBOL"
-      echo $color
+      echo "U:$upgraded/N:$new/R:$removed/H:$held $PENDING_SYMBOL"
     fi

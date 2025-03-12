@@ -40,24 +40,20 @@ return {
 				},
 			})
 			require("telescope").load_extension("ui-select")
-			require("telescope").load_extension("session-lens")
 		end,
 		dependencies = {
 			"nvim-telescope/telescope-ui-select.nvim",
 		},
 		lazy = false,
 	},
-
 	{
-		"rmagatti/auto-session",
+		"echasnovski/mini.nvim",
+		version = false,
 		config = function()
-			require("auto-session").setup({
-				use_git_branch = true,
-				suppressed_dirs = { "/", "~/Downloads", "~/.config" },
-				lazy_support = true,
-			})
+			require("mini.sessions").setup({ autowrite = true })
 		end,
 	},
+
 	{
 		"HakonHarnes/img-clip.nvim",
 		lazy = false,
