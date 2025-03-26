@@ -24,7 +24,9 @@ mason_tool_installer.setup({
 	},
 	ensure_installed = {
 		"ansible-lint",
+		"ansible-language-server",
 		"clang-format",
+		"cmake-language-server",
 		"prettier",
 		"taplo",
 		"yamlfix",

@@ -166,7 +166,8 @@
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
     },
     "custom/apt": {
-        "exec": "$HOME/.config/scripts/apt_upgrades -N -s ''" // Script in resources folder
+        "exec": "$HOME/.config/scripts/apt_upgrades -N -s ''", // Script in resources folder
+	    "restart-interval": 60
     },
     "privacy": {
         "icon-spacing": 4,
