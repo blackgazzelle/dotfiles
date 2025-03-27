@@ -18,8 +18,7 @@
 
     ],
     "modules-center": [
-        "custom/media",
-        "sway/window"
+        "custom/media"
     ],
     "modules-right": [
         "custom/apt",
@@ -128,7 +127,7 @@
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
-        "format-wifi": "{essid}({signalStrength}%)",
+        "format-wifi": "{essid}  ",
         "format-ethernet": "{ipaddr} 󰈀 ",
         "tooltip-format": "{ifname} via {gwaddr} 󰈁",
         "format-linked": "{ifname} (No IP) 󰈂",
