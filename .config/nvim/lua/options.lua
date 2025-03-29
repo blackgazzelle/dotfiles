@@ -29,6 +29,10 @@ vim.opt.incsearch = true -- search as characters are entered
 vim.opt.ignorecase = true -- ignore case in searches by default
 vim.opt.smartcase = true -- but make it case sensitive if an uppercase is entered
 
+-- Folds
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
 -- Format command
 vim.api.nvim_create_user_command("Format", function(args)
 	local range = nil
