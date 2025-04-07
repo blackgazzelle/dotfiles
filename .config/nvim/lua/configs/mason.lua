@@ -48,6 +48,7 @@ mason_tool_installer.setup({
 		"harper-ls",
 		"typescript-language-server",
 		"codelldb",
+		"gopls",
 	},
 })
 
