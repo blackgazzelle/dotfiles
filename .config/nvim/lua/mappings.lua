@@ -259,3 +259,6 @@ map({ "i", "s" }, "<C-E>", function()
 		ls.change_choice(1)
 	end
 end, { silent = true })
+
+-- Terminal
+map("t", "<Esc>", "<C-\\><C-n>", { desc = "Escpae terminal" })
