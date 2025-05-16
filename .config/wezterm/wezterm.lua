@@ -264,18 +264,18 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 
 	-- ensure that the titles fit in the available space,
 	-- and that we have room for the edges.
-	title = wezterm.truncate_right(title, max_width - 2)
+	title = wezterm.truncate_right(title, max_width)
 
 	return {
 		{ Background = { Color = edge_background } },
 		{ Foreground = { Color = edge_foreground } },
-		{ Text = SOLID_LEFT_ARROW },
+		-- { Text = SOLID_LEFT_ARROW },
 		{ Background = { Color = background } },
 		{ Foreground = { Color = foreground } },
 		{ Text = title },
 		{ Background = { Color = edge_background } },
 		{ Foreground = { Color = edge_foreground } },
-		{ Text = SOLID_RIGHT_ARROW },
+		-- { Text = SOLID_RIGHT_ARROW },
 	}
 end)
 
