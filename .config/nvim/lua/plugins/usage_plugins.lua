@@ -95,7 +95,8 @@ return {
 					["core.dirman"] = {
 						config = {
 							workspaces = {
-								notes = "~/Nextcloud/Share/Notes/",
+								notes = "~/Nextcloud/Notes/",
+								school = "~/Nextcloud/Notes/GT/",
 								projects = "~/Projects/",
 							},
 						},
