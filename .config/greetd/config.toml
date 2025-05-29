@@ -8,9 +8,10 @@ vt = 7
 
 # `agreety` is the bundled agetty/login-lookalike. You can replace `/bin/sh`
 # with whatever you want started, such as `sway`.
-command = "tuigreet --remember --remember-session --greeting 'Welcome Space Cowboy' --cmd sway --theme 'border=white;text=white;prompt=green;time=green;action=blue;button=yellow;container=gray;input=white'"
+#command = "tuigreet --remember --remember-session --greeting 'Welcome Space Cowboy' --cmd sway --theme 'border=white;text=white;prompt=green;time=green;action=blue;button=yellow;container=gray;input=white'"
 # if using wlgreet
 #command = "sway --config /etc/greetd/sway-config"
+command = "sway -c /etc/nwg-hello/sway-config"
 
 # The user to run the command as. The privileges this user must have depends
 # on the greeter. A graphical greeter may for example require the user to be
