@@ -1,0 +1,33 @@
+{
+  "session_dirs": [
+    "/usr/share/wayland-sessions",
+    "/usr/share/xsessions"
+  ],
+  "custom_sessions": [
+    {
+      "name": "Shell",
+      "exec": "/usr/bin/bash"
+    },
+    {
+      "name": "sway-run",
+      "exec": "/usr/local/bin/sway-run"
+    }
+  ],
+  "monitor_nums": [],
+  "form_on_monitors": [],
+  "delay_secs": 1,
+  "cmd-sleep": "systemctl suspend",
+  "cmd-reboot": "systemctl reboot",
+  "cmd-poweroff": "systemctl poweroff",
+  "gtk-theme": "Nordic-darker",
+  "gtk-icon-theme": "Nordic-darker",
+  "gtk-cursor-theme": "",
+  "prefer-dark-theme": true,
+  "template-name": "",
+  "time-format": "%H:%M:%S",
+  "date-format": "%A, %d. %B",
+  "layer": "overlay",
+  "keyboard-mode": "exclusive",
+  "lang": "",
+  "env-vars": []
+}
