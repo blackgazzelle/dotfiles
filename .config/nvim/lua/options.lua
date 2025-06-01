@@ -30,8 +30,22 @@ vim.opt.ignorecase = true -- ignore case in searches by default
 vim.opt.smartcase = true -- but make it case sensitive if an uppercase is entered
 
 -- Folds
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	callback = function()
+		if require("nvim-treesitter.parsers").has_parser() then
+			vim.opt.foldmethod = "expr"
+			vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+		else
+			vim.opt.foldmethod = "syntax"
+		end
+
+		if vim.bo.filetype == "ptnotes" then
+			vim.opt.foldmethod = "marker"
+			vim.opt.foldmarker = "{{,}}"
+		end
+		vim.opt.foldenable = false
+	end,
+})
 
 -- Format command
 vim.api.nvim_create_user_command("Format", function(args)
