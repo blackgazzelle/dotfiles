@@ -127,7 +127,6 @@ export EDITOR='/usr/bin/nvim'
 export PAGER='/usr/bin/less'
 export BROWSER='/usr/bin/brave-browser-stable'
 export VIMCONF="$HOME/.config/nvim/"
-export PATH=$PATH:/home/gazzelle/.spicetify
 export GPG_TTY=$(tty)
 . "$HOME/.cargo/env"
 
@@ -147,4 +146,3 @@ fi
 # ssh-agent and gpg agent
 gpg-connect-agent updatestartuptty /bye >/dev/null
 SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
-export PATH=$PATH:/home/gazzelle/bin/idea-IU/bin
