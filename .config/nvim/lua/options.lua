@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 		if vim.bo.filetype == "ptnotes" then
 			vim.opt.foldmethod = "marker"
-			vim.opt.foldmarker = "{,}"
+			vim.opt.foldmarker = ">>>,<<<"
 		end
 		vim.opt.foldenable = false
 	end,

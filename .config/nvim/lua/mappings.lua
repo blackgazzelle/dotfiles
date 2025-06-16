@@ -25,10 +25,20 @@ map("n", "<leader>fm", function()
 end, { desc = "General format", noremap = true })
 map("v", ">", ">gv", { desc = "General indent" })
 map({ "v", "i" }, "jk", "<esc>", { desc = "General escape" })
-map("n", "<C-nt>", 'i<C-R>=strftime("%Y-%m-%d %a %H:%M %Z")<CR>--<Esc>', { desc = "General Print time", silent = true })
-map("i", "<C-nt>", '<C-R>=strftime("%Y-%m-%d %a %H:%M %Z")<CR>--', { desc = "General Print time", silent = true })
-map("i", "<C-nh>", ">>>", { desc = "General insert note header" })
-map("n", "<C-nh>", "i>>><esc>", { desc = "General insert note header" })
+map(
+	"n",
+	"<localleader>it",
+	'i<C-R>=strftime("%Y-%m-%d %a %H:%M %Z")<CR><Esc>',
+	{ desc = "General Print time", silent = true }
+)
+map(
+	"i",
+	"<localleader>it",
+	'<C-R>=strftime("%Y-%m-%d %a %H:%M %Z")<CR>',
+	{ desc = "General Print time", silent = true }
+)
+map("i", "<localleader>ih", ">>>\n<<<", { desc = "General insert note header" })
+map("n", "<localleader>ih", "i>>>\n<<<<esc>", { desc = "General insert note header" })
 map("n", "zz", ":update<CR>", { desc = "General save document" })
 
 -- Telescope
