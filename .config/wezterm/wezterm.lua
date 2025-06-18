@@ -18,6 +18,10 @@ config.audible_bell = "Disabled"
 
 -- set font
 config.font = wezterm.font("JetBrainsMono Nerd Font")
+config.font = wezterm.font_with_fallback({
+	"JetBrainsMono Nerd Font",
+	"NotoSans Nerd Font",
+})
 config.font_size = 10
 
 -- set leader for terminal
