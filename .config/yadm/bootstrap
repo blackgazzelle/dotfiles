@@ -55,7 +55,7 @@ function install_common {
         command-not-found gnome-screenshot urlview psmisc yubikey-manager fido2-tools \
         anacron pipx apt-listbugs apt-listchanges timeshift desktop-base ranger gdb luarocks python3-pip \
         coreutils dateutils ncal cmake-format bear neovim curl wget zip firefox \
-        fonts-noto-extra fonts-not-color-emoji fonts-symbola -y
+        fonts-noto-extra fonts-not-color-emoji fonts-symbola ibus -y
 
     # Terminal
     sudo apt install zsh fzf -y
@@ -135,7 +135,7 @@ function wayland_install {
         playerctl wofi grim slurp nwg-displays pipewire-pulse wev wireplumber wlr-randr xdg-desktop-portal-wlr \
         network-manager-gnome mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev pipewire python3-dbus p7zip-full \
         p7zip-full xinit ukui-polkit polkitd pinentry-gnome3 gnome-keyring policykit-1-gnome blueman thefuck \
-        ddcutil ddcui libplayerctl2 libplayerctl-dev greetd tuigreet jq -y
+        ddcutil ddcui libplayerctl2 libplayerctl-dev greetd tuigreet jq wtype wl-clipboard -y
 }
 
 
