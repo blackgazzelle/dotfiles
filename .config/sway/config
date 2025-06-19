@@ -123,7 +123,10 @@ floating_modifier $mod
 bindsym $mod+d exec wofi --show drun -I
 
 # wofi power menu
-bindsym $mod+Shift+e exec $HOME/.config/scripts/powermenu_wofi.sh
+bindsym $mod+q exec $HOME/.config/scripts/powermenu_wofi.sh
+
+# wofi emoji picker
+bindsym $mod+Shift+e exec bemoji -t
 
 #TODO: show windows to switch between need script for this still
 #bindsym $mod+t exec wofi --show window
