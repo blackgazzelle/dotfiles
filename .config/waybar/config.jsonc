@@ -27,7 +27,6 @@
         "pulseaudio",
         "network",
         "clock",
-        "bluetooth",
         "tray"
     ],
     // Modules configuration
