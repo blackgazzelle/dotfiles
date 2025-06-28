@@ -1,0 +1,11 @@
+[Unit]
+Description=EasyEffects service
+
+[Service]
+Type=simple
+ExecStart=easyeffects --gapplication-service -l 'fw13-easy-effects'
+ExecStop=easyeffects --quit
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

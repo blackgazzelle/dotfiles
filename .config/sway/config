@@ -41,6 +41,7 @@ assign [app_id="firefox"] $ws2
 assign [app_id="spotify"] $ws3
 assign [app_id="discord"] $ws4
 assign [class="Slack"] $ws4
+assign [class="discord"] $ws4
 assign [app_id="Signal"] $ws4
 assign [app_id="thunderbird-default"] $ws5
 assign [class="steam"] $ws10
