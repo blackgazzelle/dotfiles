@@ -1,5 +1,4 @@
 #!/usr/bin/env /bin/bash
-pasystray &
 nm-applet &
 blueman-applet &
 nextcloud &
