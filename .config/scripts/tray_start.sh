@@ -2,7 +2,6 @@
 nm-applet &
 blueman-applet &
 nextcloud &
-if [ -x "$(command -v polychromatic-cli)" ]; then
+if [ -x "$(command -v polychromatic-tray-applet-cli)" ]; then
     polychromatic-tray-applet &
-    polychromatic-cli -o static -c FF0000
 fi
