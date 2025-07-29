@@ -7,3 +7,8 @@ profile pc {
 profile laptop {
     output eDP-1 enable transform normal mode 2256x1504@59.999Hz adaptive_sync off position 0,0 scale 1.5
 }
+
+profile laptop-monitor {
+    output eDP-1 enable transform normal mode 2256x1504@59.999Hz adaptive_sync off position 1920,0 scale 1.5
+    output DP-4 enable transform normal mode 1920x1080@60.0Hz adaptive_sync off position 0,0 scale 1.0
+}

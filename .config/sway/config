@@ -214,12 +214,13 @@ bindsym $mod+Shift+r restart
 # MISC Key bindings
 bindsym $mod+b exec brave-browser-stable
 bindsym $mod+y move workspace to output left
-bindsym $mod+Shift+s exec flatpak run com.spotify.Client
+bindsym $mod+Shift+m exec spotify --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
 bindsym $mod+Shift+x exec waylock
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
-bindsym $mod+Shift+p exec grim -g "$(slurp)"
+bindsym $mod+Shift+s exec grim -g "$(slurp)"
 bindsym $mod+p exec cliphist list | wofi -S dmenu | cliphist decode | wl-copy
+bindsym $mod+Shift+p exec cliphist list | wofi -S dmenu | cliphist delete
 
 # Script to change display setup
 bindsym $mod+Shift+space exec $HOME/.config/scripts/display-switch.sh
