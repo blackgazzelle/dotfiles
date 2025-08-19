@@ -83,7 +83,7 @@ setopt HIST_EXPIRE_DUPS_FIRST
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting poetry z bgnotify web-search debian command-not-found compleat docker docker-compose colored-man-pages common-aliases catimg thefuck ssh-agent poetry)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting poetry z bgnotify web-search debian command-not-found compleat docker docker-compose colored-man-pages common-aliases catimg thefuck ssh-agent poetry vi-mode)
 zstyle :omz:plugins:ssh-agent lazy yes
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
 
@@ -142,6 +142,17 @@ fi
 if [ -f ~/.env_tokens ]; then
   . ~/.env_tokens
 fi
+
+# Binding to get out of insert mode
+export KEYTIMEOUT=40
+bindkey 'jk' vi-cmd-mode
+
+# setup prompt changes for vi modes
+VI_MODE_CURSOR_INSERT=0
+VI_MODE_SET_CURSOR=true
+
+# Blink when in insert mode
+RPROMPT="\$(vi_mode_prompt_info)$RPROMPT"
 
 # ssh-agent and gpg agent
 gpg-connect-agent updatestartuptty /bye >/dev/null
