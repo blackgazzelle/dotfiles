@@ -43,25 +43,35 @@ assign [app_id="discord"] $ws4
 assign [class="Slack"] $ws4
 assign [class="discord"] $ws4
 assign [app_id="Signal"] $ws4
-assign [app_id="thunderbird-default"] $ws5
+assign [app_id="thunderbird"] $ws5
 assign [class="steam"] $ws10
+
+# floating 
 for_window [window_role="pop-up"]                       floating enable
-for_window [window_role="bubble"]                       floating enable 
 for_window [window_role="task_dialog"]                  floating enable
 for_window [window_role="Preferences"]                  floating enable
-for_window [window_type="dialog"]                       floating enable 
 for_window [window_type="menu"]                         floating enable
 for_window [title="Event Tester"]                       floating enable
 for_window [app_id="Youtube-dl-gui"]                     floating enable
 for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable;
 for_window [title="(?:Open|Save) (?:File|Folder|As)"] resize set 800 600
 for_window [window_role="pop-up"] floating enable
+for_window [window_role="Pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
+for_window [window_role="dialog"] floating enable
+for_window [window_role="Dialog"] floating enable
+for_window [window_type="Dialog"] floating enable
+for_window [class="dialog"] floating enable
+for_window [class="Dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [app_id="brave-nngceckbapebfimnlniiiahkandclblb-Default"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="Bubble"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [window_role="About"] floating enable
 
 ## Colors
 # class                 border  backgr. text    indicator
