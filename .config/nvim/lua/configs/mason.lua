@@ -40,7 +40,7 @@ mason_tool_installer.setup({
 		"prettierd",
 		"rust-analyzer",
 		"beautysh",
-		"pyright",
+		-- "pyright",
 		"bash-language-server",
 		"marksman",
 		"ruff",

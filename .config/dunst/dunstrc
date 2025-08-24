@@ -21,58 +21,67 @@
 
     ### Geometry ###
 
+    # The width of the window, excluding the frame.
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 300
+    width = (100, 300)
 
-    # The maximum height of a single notification, excluding the frame.
-    height = 300
+    # The height of a single notification, excluding the frame.
+    # dynamic height from 0 to 300
+    height = (0, 300)
+    # constant height of 300
+    # height = 300
+    # NOTE: Dunst from version 1.11 and older don't support dynamic height
+    #       and the given value is treated as the maximum height
 
     # Position the notification in the top right corner
     origin = top-right
 
     # Offset from the origin
-    offset = 12x82
+    # NOTE: Dunst from version 1.11 and older use this alternative notation
+    # offset = 10x50
+    offset = (5, 15)
 
     # Scale factor. It is auto-detected if value is 0.
+	# NOTE: The screenshot was made with scale = 2
     scale = 0
 
     # Maximum number of notification (0 means no limit)
-    notification_limit = 20
+    notification_limit = 10
 
     ### Progress bar ###
 
-    # Turn on the progess bar. It appears when a progress hint is passed with
+    # Turn on the progress bar. It appears when a progress hint is passed with
     # for example dunstify -h int:value:12
     progress_bar = true
 
     # Set the progress bar height. This includes the frame, so make sure
     # it's at least twice as big as the frame width.
-    progress_bar_height = 10
+    progress_bar_height = 14
 
     # Set the frame width of the progress bar
-    progress_bar_frame_width = 1
+    progress_bar_frame_width = 0
 
     # Set the minimum width for the progress bar
-    progress_bar_min_width = 150
+    progress_bar_min_width = 100
 
     # Set the maximum width for the progress bar
     progress_bar_max_width = 300
 
     # Corner radius for the progress bar. 0 disables rounded corners.
-    #progress_bar_corner_radius = 0
+    progress_bar_corner_radius = 50
 
     # Define which corners to round when drawing the progress bar. If progress_bar_corner_radius
     # is set to 0 this option will be ignored.
-    progress_bar_corners = all
+	progress_bar_corners = bottom-left, top-right
 
     # Corner radius for the icon image.
     icon_corner_radius = 0
 
     # Define which corners to round when drawing the icon image. If icon_corner_radius
     # is set to 0 this option will be ignored.
-    #icon_corners = all
+    icon_corners = all
 
     # Show how many messages are currently hidden (because of
     # notification_limit).
@@ -87,20 +96,20 @@
     # notifications.
     # Set to 0 to disable.
     # If gap_size is greater than 0, this setting will be ignored.
-    separator_height = 2
+    separator_height = 6
 
     # Padding between text and separator.
-    padding = 8
+    padding = 10
 
     # Horizontal padding.
     horizontal_padding = 8
 
     # Padding between text and icon.
-    text_icon_padding = 0
+    text_icon_padding = 12
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 1
 
     # Defines color of the frame around the notification window.
     frame_color = "#81a1c1"
@@ -109,7 +118,7 @@
     # If value is greater than 0, separator_height will be ignored and a border
     # of size frame_width will be drawn around each notification instead.
     # Click events on gaps do not currently propagate to applications below.
-    gap_size = 0
+    gap_size = 6
 
     # Define a color for the separator.
     # possible values are:
@@ -136,7 +145,7 @@
 
     ### Text ###
 
-    font = JetBrainsMono Nerd Font 8
+    font = JetBrainsMono NF 12
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -189,7 +198,7 @@
     # Show age of message if message is older than show_age_threshold
     # seconds.
     # Set to -1 to disable.
-    show_age_threshold = 60
+    show_age_threshold = -1
 
     # Specify where to make an ellipsis in long lines.
     # Possible values are "start", "middle" and "end".
@@ -214,12 +223,12 @@
     enable_recursive_icon_lookup = true
 
     # Set icon theme (only used for recursive icon lookup)
-    icon_theme = "Nordic-darker, Nordic-bluish, Adwaita"
+    icon_theme = Nordic-darker, Adwaita, Papirus, Papirus-Dark, 
     # You can also set multiple icon themes, with the leftmost one being used first.
     # icon_theme = "Adwaita, breeze"
 
     # Align icons left/right/top/off
-    icon_position = left
+    icon_position = right
 
     # Scale small icons up to this size, set to 0 to disable. Helpful
     # for e.g. small files or high-dpi screens. In case of conflict,
@@ -229,7 +238,7 @@
     # Scale larger icons down to this size, set to 0 to disable
     max_icon_size = 128
 
-    # Paths to default icons (only neccesary when not using recursive icon lookup)
+    # Paths to default icons (only necessary when not using recursive icon lookup)
     icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
     ### History ###
@@ -239,12 +248,12 @@
     sticky_history = yes
 
     # Maximum amount of notifications kept in history
-    history_length = 20
+    history_length = 30
 
     ### Misc/Advanced ###
 
     # dmenu path.
-    dmenu = /usr/bin/dmenu -p dunst:
+    dmenu = /usr/bin/dmenu -l 10 -p dunst:
 
     # Browser for opening urls in context menu.
     browser = /usr/bin/xdg-open
@@ -252,10 +261,10 @@
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
 
-    # Define the title of the windows spawned by dunst
+    # Define the title of the windows spawned by dunst (X11 only)
     title = Dunst
 
-    # Define the class of the windows spawned by dunst
+    # Define the class of the windows spawned by dunst (X11 only)
     class = Dunst
 
     # Define the corner radius of the notification window
@@ -263,14 +272,14 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 0
+    corner_radius = 10
 
     # Define which corners to round when drawing the window. If the corner radius
     # is set to 0 this option will be ignored.
     #
     # Comma-separated list of the corners. The accepted corner values are bottom-right,
     # bottom-left, top-right, top-left, top, bottom, left, right or all.
-    #corners = all
+    corners = bottom, top-left
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -281,7 +290,7 @@
     ### Wayland ###
     # These settings are Wayland-specific. They have no effect when using X11
 
-    # Uncomment this if you want to let notications appear under fullscreen
+    # Uncomment this if you want to let notifications appear under fullscreen
     # applications (default: overlay)
     # layer = top
 
@@ -335,26 +344,29 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#2e3440"
     foreground = "#eceff4"
-    timeout = 10
-    # Icon for notifications with low urgency, uncomment to enable
-    #default_icon = /path/to/icon
+	highlight = "#722ae6, #e4b5cb"
+    timeout = 20
+    # Icon for notifications with low urgency
+    #default_icon = dialog-information
 
 [urgency_normal]
     background = "#4c566a"
     foreground = "#eceff4"
-    timeout = 10
-    #override_pause_level = 30
-    # Icon for notifications with normal urgency, uncomment to enable
-    #default_icon = /path/to/icon
+	highlight = "#722ae6, #e4b5cb"
+    timeout = 20
+    override_pause_level = 30
+    # Icon for notifications with normal urgency
+    default_icon = dialog-information
 
 [urgency_critical]
     background = "#bf616a"
-    foreground = "#eceff4"
-    frame_color = "#ebcb8b"
+    foreground = "#ffffff"
+    frame_color = "#bf616a"
+	highlight = "#bf616a, #f0f0f0"
     timeout = 0
-    #override_pause_level = 60
-    # Icon for notifications with critical urgency, uncomment to enable
-    #default_icon = /path/to/icon
+    override_pause_level = 60
+    # Icon for notifications with critical urgency
+    default_icon = dialog-warning
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
