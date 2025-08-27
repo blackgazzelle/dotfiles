@@ -8,7 +8,6 @@ Clear='\033[0m' # No Color
 function setup_directories {
     mkdir -p $HOME/bin/
     mkdir -p $HOME/.local/bin
-    mkdir -p $HOME/.duplicity/
     mkdir -p $HOME/Desktop/
     mkdir -p $HOME/Pictures/backgrounds/
     mkdir -p $HOME/Downloads/
@@ -51,7 +50,7 @@ function install_common {
         openjdk-17-jre openjdk-17-jdk default-jre default-jdk git golang gpg grub-customizer 7zip \
         htop python3 python-is-python3 ipython3 nextcloud-desktop nmap npm lldb \
         openssh-client openssh-server openvpn okular pavucontrol pulseaudio virt-manager xxd \
-        xcwd network-manager pandoc btop duplicity gpg ripgrep python3-venv eog thunar dfc xclip \
+        xcwd network-manager pandoc btop gpg ripgrep python3-venv eog thunar dfc xclip \
         command-not-found gnome-screenshot urlview psmisc yubikey-manager fido2-tools \
         anacron pipx apt-listbugs apt-listchanges timeshift desktop-base ranger gdb luarocks python3-pip \
         coreutils dateutils ncal cmake-format bear neovim curl wget zip firefox \
