@@ -1,0 +1,36 @@
+#!/usr/bin/env /bin/bash
+raiseVolume() {
+    pulsemixer --id $1 --change-volume +2
+}
+
+lowerVolume() {
+    pulsemixer --id $1 --change-volume -2
+}
+
+muteVolume() {
+    pulsemixer --id $1 --toggle-mute
+}
+
+action=$1
+
+# Get all the sinks
+IFS=$'\n' read -r -d '' -a sinks < <( pulsemixer --list-sinks | grep -v "input" | awk '{ print $3 }' | sed 's/,//' && printf '\0' )
+
+for sink in ${sinks[@]}
+do
+    case $action in
+        "raise")
+            raiseVolume $sink
+            ;;
+        "lower")
+            lowerVolume $sink
+            ;;
+        "mute")
+            muteVolume $sink
+            ;;
+        *)
+            echo "hmm"
+            ;;
+    esac
+done
+
