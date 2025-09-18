@@ -53,7 +53,7 @@ function install_common {
         xcwd network-manager pandoc btop gpg ripgrep python3-venv eog thunar dfc xclip \
         command-not-found gnome-screenshot urlview psmisc yubikey-manager fido2-tools \
         anacron pipx apt-listbugs apt-listchanges timeshift desktop-base ranger gdb luarocks python3-pip \
-        coreutils dateutils ncal cmake-format bear neovim curl wget zip firefox \
+        coreutils dateutils ncal cmake-format bear neovim curl wget zip firefox pulsemixer \
         fonts-noto-extra fonts-not-color-emoji fonts-symbola ibus -y
 
     # Terminal
