@@ -5,7 +5,6 @@ mason_dap.setup({
 		"cppdbg",
 		"delve",
 		"python",
-		"bash",
 	},
 	automatic_installation = true,
 	handlers = {
