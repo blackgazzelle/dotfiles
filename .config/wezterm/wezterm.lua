@@ -283,18 +283,5 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	}
 end)
 
--- Setup Domains
-config.ssh_domains = {
-	{
-		-- This name identifies the domain
-		name = "aos",
-		-- The hostname or address to connect to. Will be used to match settings
-		-- from your ssh config file
-		remote_address = "aos.gazzelle.dev",
-		-- The username to use on the remote host
-		username = "aos",
-	},
-}
-
 -- and finally, return the configuration to wezterm
 return config
